@@ -81,9 +81,7 @@ Care must be taken when referring to statistics about an entire population (ofte
 ### Sample Mean
 
 $$
-
 \overline{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
-
 $$
 
 
