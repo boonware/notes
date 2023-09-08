@@ -90,9 +90,7 @@ The expected value of the sample mean is the population mean. In other words, if
 ### Sample Variance
 
 $$
-
 s^2 =  \frac{1}{n-1}\sum_{i=1}^{n} (x_i - \overline{x})^2
-
 $$
 
 The expected value of the sample variance is the population variance.
@@ -102,15 +100,11 @@ The expected value of the sample variance is the population variance.
 A sample statistic is unbiased if the expectation value equals the population parameter. This is true for both the sample mean and sample variance given above:
 
 $$
-
 E[\overline{x}] = \mu 
-
 $$
 
 $$
-
 E[s^2] = \sigma^2 
-
 $$
 
 
@@ -122,9 +116,7 @@ The factor of $\frac{1}{1-n}$ above is known as _Bessel's Correction_. Intuitive
 First, let us show that the following produces a biased statistic:
 
 $$
-
 s_{b}^2 =  \frac{1}{n}\sum_{i=1}^{n} (x_i - \overline{x})^2
-
 $$
 
 Manipulate the expected value:
@@ -138,7 +130,6 @@ $$
             &= \frac{1}{n}\sum_{i=1}^{n} E[x_i^2] - E[\overline{x}^2] \\
             &= \frac{1}{n} (n E[x_i^2] ) - E[\overline{x}^2] \\
             &= E[x_i^2] - E[\overline{x}^2] \\
-               
 \end{align*}
 $$
 
