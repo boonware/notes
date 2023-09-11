@@ -19,14 +19,10 @@ $$ \mu_X = E[X] = \sum_{i=1}^{n} x_i P(x_i) $$
 
 Where the distribution X is clear the symbol $\mu$ may also be used. The expectated value is a weighted average. Note the usage of square brackets here to denote that this is a _functional_, i.e. a function of other functions (probability distributions); this notation is not consistent. The notation $\overline{X}$ is also used, and $\braket{X}$ is common in physics.
 
-#### Properties
+#### Linearity
 The expected value is linear, no matter if the distributions are dependent or independent:
 
 $$ E[X + Y] = E[X] + E[Y] $$
-
-It is also trivial to show that it is idempotent:
-
-$$ E[E[X]] = E[X] $$
 
 ### Law of Large Numbers
 When $n$ samples are taken from a probability distribution $X$ their average value approaches the expected value as the number of samples increases. This is an intuitive result.
@@ -81,13 +77,22 @@ $$
 $$
 
 ### Population vs. Sample Values
-Care must be taken when referring to statistics about an entire population (often unknown) versus samples taken from that population. More correctly, the values that refer to the entire population are  _parameters_ of the distribution. The expected value $E[X]$, a parameter as it is a property of the population, is often refered to as the mean $\mu_X$ or $\mu$ where the distribution $X$ is obvious. We cannot calculate this value for a sample
+Care must be taken when referring to statistics about an entire population (often unknown) versus samples taken from that population. More correctly, the values that refer to the entire population are  _parameters_ of the distribution. We can estimate the values of population parameters using sampling. A sample statistic is _unbiased_ if the expectation value equals the population parameter, otherwise it is known as a _biased_ statistic.
 
 ### Sample Mean
+The sample mean provides an estimate of the population mean, and is an arithmetic average over the sample values:
 
 $$
 \overline{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
 $$
+
+The expected value of the sample mean is the population mean:
+
+$$
+E[\overline{x}] = \mu 
+$$
+
+The variance of the sample mean approaches zero as the sample sizes increases, since the sample mean itself approaches the population mean:
 
 $$
 Var[\overline{x}] = \frac{\sigma^2}{n}
@@ -102,8 +107,7 @@ Var[\overline{x}] &= Var \left[ \frac{1}{n} \sum_{i=1}^{n} x_i \right] \text{xc}
 \end{align*}
 $$
 
-
-The expected value of the sample mean is the population mean. In other words, if multiple independent samples are drawn from the population, the mean of the sample means will tend towards the mean of the population.
+TODO - complete
 
 ### Sample Variance
 
@@ -111,25 +115,17 @@ $$
 s^2 =  \frac{1}{n-1}\sum_{i=1}^{n} (x_i - \overline{x})^2
 $$
 
-The expected value of the sample variance is the population variance.
-
-
-### Statistical Bias
-A sample statistic is unbiased if the expectation value equals the population parameter. This is true for both the sample mean and sample variance given above:
-
-$$
-E[\overline{x}] = \mu 
-$$
+The expected value of the sample variance is the population variance:
 
 $$
 E[s^2] = \sigma^2 
 $$
 
 
-### Bessel's Correction
-The factor of $\frac{1}{1-n}$ above is known as _Bessel's Correction_. Intuitively it may seem like $\frac{1}{n}$ should be used, however, this produces an underestimation, i.e. a biased statistic. 
+#### Bessel's Correction
+The factor of $\frac{1}{n-1}$ in the sample variance is known as _Bessel's Correction_. Intuitively it may appear that an arithmetic average over the values should be taken, similar to the sample mean, however, this produces an underestimation, i.e. a biased statistic. 
 
-#### Proof
+##### Proof
 
 First, let us show that the following produces a biased statistic:
 
@@ -153,5 +149,39 @@ $$
 
 The second last line holds since $x_i$ represents an observation, and all observations (it is assumed) are i.i.d. Therefore the expected value of any obversation is the same, i.e. $E[x_i] = \mu$.
 
-TODO to finish
+From the definition of variance:
 
+$$
+\begin{align*}
+    E[x_i^2] &= Var[x_i] + E[x_i]^2 \\
+            &= \sigma^2 + \mu^2
+\end{align*}
+$$
+
+We also know that $Var[\overline{x}] = \frac{\sigma^2}{n}$, therefore:
+
+$$
+\begin{align*}
+    E[\overline{x}^2] &= Var[\overline{x}] + E[\overline{x}]^2 \\
+                      &= \frac{\sigma^2}{n} + \mu^2
+\end{align*}
+$$
+
+Bringing the above together:
+
+$$
+\begin{align*}
+    E[s_{b}^2] &= \sigma^2 + \mu^2 - \frac{\sigma^2}{n} - \mu^2 \\
+                &= \left( 1 - \frac{1}{n} \right) \sigma^2
+\end{align*}
+$$
+
+The expected value of the sample variance $s_b^2$ is biased, that is, it is not equal to the population variance and must be corrected by the inverse factor on the right-hand side to obtain a non-biased result:
+
+$$
+\begin{align*}
+    \sigma^2 &= \frac{n}{n-1}E[s_{b}^2]\\
+             &= \left( \frac{n}{n-1} \right) \frac{1}{n}\sum_{i=1}^{n} (x_i - \overline{x})^2 \\
+             &= \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \overline{x})^2
+\end{align*}
+$$
