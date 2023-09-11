@@ -1,4 +1,4 @@
-## Fundamentals
+## Introduction
 
 ### What is Statistics?
 The German word _Statistik_, itself derived from Latin, had a now obsolete meaning "description of a state". In statistics, we are concerned with _populations_, and we wish to make _summary_ statements about the state of these populations by _sampling_ when it is simply impractical, or perhaps impossible, to learn about all members of a population. In this sense, we wish to determine the value of some state of the population. For example, it is at least impractical to determine the average height of every adult human on Earth by measuring billions of people, but by taking well-chosen samples we can determine a good approximation.
@@ -6,11 +6,16 @@ The German word _Statistik_, itself derived from Latin, had a now obsolete meani
 ### Descriptive vs. Inferential Statistics
 Statistical techniques fall into two broad categories. Descriptive statistics describe or summarize data, for example mean or standard deviation. With descriptive statistics there is no uncertainty as the reported statistics simply describe the data as measured. Descriptive statistics are used for creating graphs and charts such as histograms and pie charts. With inferential statistics the goal is to infer or estimate properties of a population based on sampling. Inferential techniques include hypothesis testing.
 
+## Statistics of Discrete Probability Distributions
+We begin our study of statistics with the theory of _discrete random variables_. We denote the set of all possible values that the random variable can take as $X$. Specific values of the random variable are denoted in lower case $x$. A random variable obeys some probability distribution $P(X): \mathbb{R} \mapsto \mathbb{R}$ such that we can obtain the probability of a specific value of $X$ occurring. The probability distribution obeys the _normalization condition_:
+
+$$ \sum_{i=1}^{n} P(x_i) = 1 $$
+
 ### Expected Value
 
 For a discrete probability distribution $X$ with $n$ possible values, where $x_i$ is the i-th possible value and $p_i$ is the probability of that value, the expected value (or expectation) is given by
 
-$$ \mu_X = E[X] = \sum_{i=1}^{n} x_i p_i $$
+$$ \mu_X = E[X] = \sum_{i=1}^{n} x_i P(x_i) $$
 
 Where the distribution X is clear the symbol $\mu$ may also be used. The expectated value is a weighted average. Note the usage of square brackets here to denote that this is a _functional_, i.e. a function of other functions (probability distributions); this notation is not consistent. The notation $\overline{X}$ is also used, and $\braket{X}$ is common in physics.
 
@@ -82,6 +87,19 @@ Care must be taken when referring to statistics about an entire population (ofte
 
 $$
 \overline{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
+$$
+
+$$
+Var[\overline{x}] = \frac{\sigma^2}{n}
+$$
+
+#### Proof
+
+$$
+\begin{align*}
+Var[\overline{x}] &= Var \left[ \frac{1}{n} \sum_{i=1}^{n} x_i \right] \text{xc} \\
+                  &= \frac{1}{n^2} \sum_{i=1}^{n} Var[x_i]   \\
+\end{align*}
 $$
 
 
