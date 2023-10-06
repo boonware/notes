@@ -1,0 +1,7 @@
+## Introduction
+
+### What is Statistics?
+The German word _Statistik_, itself derived from Latin, had a now obsolete meaning "description of a state". In statistics, we are concerned with _populations_, and we wish to make _summary_ statements about the state of these populations by _sampling_ when it is simply impractical, or perhaps impossible, to learn about all members of a population. In this sense, we wish to determine the value of some state of the population. For example, it is at least impractical to determine the average height of every adult human on Earth by measuring billions of people, but by taking well-chosen samples we can determine a good approximation.
+
+### Descriptive vs. Inferential Statistics
+Statistical techniques fall into two broad categories. Descriptive statistics describe or summarize data, for example mean or standard deviation. With descriptive statistics there is no uncertainty as the reported statistics simply describe the data as measured. Descriptive statistics are used for creating graphs and charts such as histograms and pie charts. With inferential statistics the goal is to infer or estimate properties of a population based on sampling. Inferential techniques include hypothesis testing.

@@ -1,12 +1,4 @@
-## Introduction
-
-### What is Statistics?
-The German word _Statistik_, itself derived from Latin, had a now obsolete meaning "description of a state". In statistics, we are concerned with _populations_, and we wish to make _summary_ statements about the state of these populations by _sampling_ when it is simply impractical, or perhaps impossible, to learn about all members of a population. In this sense, we wish to determine the value of some state of the population. For example, it is at least impractical to determine the average height of every adult human on Earth by measuring billions of people, but by taking well-chosen samples we can determine a good approximation.
-
-### Descriptive vs. Inferential Statistics
-Statistical techniques fall into two broad categories. Descriptive statistics describe or summarize data, for example mean or standard deviation. With descriptive statistics there is no uncertainty as the reported statistics simply describe the data as measured. Descriptive statistics are used for creating graphs and charts such as histograms and pie charts. With inferential statistics the goal is to infer or estimate properties of a population based on sampling. Inferential techniques include hypothesis testing.
-
-## Statistics of Discrete Probability Distributions
+## Discrete Probability Distributions
 We begin our study of statistics with the theory of _discrete random variables_. We denote the set of all possible values that the random variable can take as $X$. Specific values of the random variable are denoted in lower case $x$. A random variable obeys some probability distribution $P(X): \mathbb{R} \mapsto \mathbb{R}$ such that we can obtain the probability of a specific value of $X$ occurring. The probability distribution obeys the _normalization condition_:
 
 $$ \sum_{i=1}^{n} P(x_i) = 1 $$
@@ -185,3 +177,33 @@ $$
              &= \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \overline{x})^2
 \end{align*}
 $$
+
+### Cumulative Distribution Function
+It is useful to define the cumulative distribution function, written $CDF$, which represents the probability of a random variable being less than or equal to some value:
+
+$$
+    CDF(x) = P(X \le x) = \sum_{X \le x} P(x) 
+$$
+
+
+## Binomial Distribution
+
+TODO - add diagram
+
+### Definition
+Consider a random experiment where each outcome can have one of two possible values: success with probability $p$ or failure with probability $1-p$. These events or trials are known as **Bernoulli Trials**. Each trial is independent of the others as the probability remains the same. An example of a Bernoulli Trial is tossing a coin to check for heads vs. tails.
+
+The discrete probability distribution of obtaining exactly $k$ successes from $n$ Bernoulli Trials is given by the **binomial distribution**:
+
+$$ P(k, n, p) = {n \choose k} p^k (1-p)^{n-k} $$
+
+where the _binomial coefficient_ (often read as "$n$ choose $k$") is
+
+$$ {n \choose k} = \frac{n!}{k!(n-k)!} $$
+
+The binomial distribution is a _probability mass function_ as it gives the probability that a discrete random variable is exactly equal to some value.
+
+For $n$ trials each with probability $p$ the mean is clearly given by
+
+$$\mu = np$$
+
