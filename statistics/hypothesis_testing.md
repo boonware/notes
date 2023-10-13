@@ -33,7 +33,8 @@ With a two-tailed or two-sided test $H_0$ is rejected if the test statistic fall
 With the p-value approach we evaluate the probability of observing a value _at least_ as extreme as the test statistic, assuming $H_0$ is true. The p-value is then compared against the significance level $\alpha$. For a test statistic $z$ we have:
 
 $$
-p(z) \le \alpha = \begin{cases} \text{true} \implies \text{reject $H_0$} \\ \text{false} \implies \text{accept $H_0$} \end{cases}
+p(z) \le \alpha = \begin{cases} \text{true} \implies \text{reject $H_0$} \\
+    \text{false} \implies \text{accept $H_0$} \end{cases}
 $$
 
 The smaller the p-value, the stronger the evidence against $H_0$. The p-value can be used to show the exact level of evidence for or against $H_0$ _without_ reference to a signficance level, unlike the critical value method.
