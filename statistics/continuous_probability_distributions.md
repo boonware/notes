@@ -71,3 +71,6 @@ $$
 $$
 
 In other words, the Central Limit Theorem tells us that given many separate samples from a population, each with many observations, the sample means will tend towards a normal distribution, provided that the sample sizes were large enough. For example, imagine sampling the height's of thousands of adults in many countries around the world. The sample means of the heights for each country would be approximately normally distributed.
+
+### 68-95-99.7 Rule
+68%, 95%, and 99.7% of the values lie within one, two, and three standard deviations of the mean, respectively.

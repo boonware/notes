@@ -7,6 +7,7 @@
 * [Discrete Probability Distributions](statistics/discrete_probability_distributions.md)
 * [Continuous Probability Distributions](statistics/continuous_probability_distributions.md)
 * [Hypothesis Testing](statistics/hypothesis_testing.md)
+* [Z-Score & Z-Test](statistics/z_test.md)
 
 ### Natural Language Processing
 

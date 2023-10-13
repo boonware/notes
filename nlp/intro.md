@@ -1,7 +1,7 @@
 
 
-### TF-IDF
-Term Frequency - Inverse Document Frequency (TF-IDF) is a widely used statistical method to measure how important a term is within a document _relative to a collection of documents_ (i.e. a corpus). "Term" is used as opposed to "word" since documents may contain words, acronyms, abbreviations etc. 
+### Term Frequency - Inverse Document Frequency (TF-IDF)
+TF-IDF is a widely used statistical method to measure how important a term is within a document _relative to a collection of documents_ (i.e. a corpus). How a document is defined depends on context, for example a sentence among many sentences, a page among many pages etc. "Term" is used as opposed to "word" since documents may contain words, acronyms, abbreviations etc.
 
 #### Term Frequency (TF)
 The TF value tells us how often a term $t$ appears in one specific document $d$.
