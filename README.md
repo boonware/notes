@@ -9,6 +9,10 @@
 * [Hypothesis Testing](statistics/hypothesis_testing.md)
 * [Z-Score & Z-Test](statistics/z_test.md)
 
+### Machine Learning
+* [Introduction](machine_learning/introduction.md)
+* [Linear Regression](machine_learning/linear_regression.md)
+
 ### Natural Language Processing
 
 * [TF-IDF](nlp/intro.md)

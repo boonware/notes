@@ -53,7 +53,7 @@ $$
 
 The most important probability distribution is the normal distribution, also known as a Gaussian distribution or bell curve due to its shape. The center is given by the mean $\mu$, and the standard deviation $\sigma$ determines how "spread out" the graph is. It is defined as follows:
 
-$$ P(x) = \frac{1}{\sigma\sqrt{2\pi}}  e^{-\frac{1}{2}{(\frac{x-\mu}{\sigma})^2}} $$
+$$ f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2}{(\frac{x-\mu}{\sigma})^2}} $$
 
 Many phenomena in nature can be _approximated_ quite well by a normal distribution, for example, people's heights, the size of snowflakes, and IQ scores.
 
