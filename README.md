@@ -12,6 +12,7 @@
 ### Machine Learning
 * [Introduction](machine_learning/introduction.md)
 * [Linear Regression](machine_learning/linear_regression.md)
+* [Feature Scaling](machine_learning/feature_scaling.md)
 
 ### Natural Language Processing
 
