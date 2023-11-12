@@ -29,6 +29,7 @@ The person is assigned a small t-shirt size as $d_{small}$ is smaller, i.e. they
 
 ### Min-Max Normalization
 Features can be scaled to the range $[0, 1]$ using min-max normalization:
+
 $$
     x^\prime_i = \frac{x_i - \min(x_i)}{\max(x_i) - \min(x_i)}
 $$
