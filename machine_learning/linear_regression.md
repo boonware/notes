@@ -42,6 +42,7 @@ $$
 $$
 
 Using matrix notation, we can write $\theta$ and $x$ as column vectors:
+
 $$
     h_\theta(x) = \vec{\theta} \cdot \vec{x} = \theta^Tx
 $$
