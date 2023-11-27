@@ -18,6 +18,22 @@ $$
 
 This cost function is the mean squared error. The square ensures only positive values for the cost. Note: some definitions include a factor of $1/2$ to simplify calculations with the derivative.
 
+### Normal Equation
+
+$$
+    X\theta = y
+$$
+
+
+$$
+\begin{align*}
+       \frac{\partial}{\partial \theta} \left( X \theta - y  \right)^T \left( X \theta - y  \right) &= 0 \\
+        2X^T(X \theta - y) &= 0 \\
+         \theta &= \left( X^TX \right)^{-1} X^T y
+\end{align*}
+
+$$
+
 ### Gradient Descent
 The cost function can be minimized using the gradient descent algorithm. This is also known as "batch" gradient descent, where all training examples are used to calculate the gradient on each iteration.
 
@@ -48,6 +64,11 @@ $$
 
 The same cost function applies in the multi-variable case, where now the input is $\vec{\theta}$.
 
+## Polynomial Regression
+
+$$
+    h_\theta(x) = \sum^n_{i=0} \theta_ix^i
+$$
 
 ## Notes
 * Linear regression image taken from [here](https://commons.wikimedia.org/wiki/File:Linear_least_squares_example2.svg) under [Creative Commons Licence](https://creativecommons.org/licenses/by-sa/3.0/). No changes have been made.

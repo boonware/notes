@@ -18,25 +18,71 @@ $$
 Fron the Central Limit Theorem we know that the sample mean $\overline{x}$ is approximately normally distributed, so the same distribution applies to the z-statistic. Note that the z-statistic in this case is essentially the same as above for the z-score; the difference between the measured value and the population mean is divided by the population standard deviation. For samples of size $n$, the standard deviation of the distribution of $\overline{x}$ is $\frac{\sigma}{\sqrt{n}}$.
 
 ## Z-Table
-A standard table for the z-statistic can be used for determining both critical values and p-values. Of course, software is used frequently instead of standard tables. A standard table shows values for the standard normal cumulative distribution function:
+A standard table for the z-statistic can be used for determining both critical values and p-values. Of course, software is used frequently instead of standard tables. 
+Cells within the table represent the area under the standard normal curve to the left of the z-score. A standard table shows values for the standard normal cumulative distribution function:
 
 $$
-    \Phi(z) = p(z \le c) = \frac{1}{\sqrt{2\pi}}  \int\limits_{-\infty}^c  e^{-\frac{1}{2}z^2} dz
+    \Phi(c) = p(z \le c) = \frac{1}{\sqrt{2\pi}}  \int\limits_{-\infty}^c  e^{-\frac{1}{2}z^2} dz
 $$
 
-A sample is show at the end of this page. To use the table, we first determine the 
-
+We can find the probability for a value _greater than_ the critical value using:
 $$
-    1 - \alpha/2  \tag{two-tailed test}
-$$
-
-$$
-    \alpha \tag{left-tailed test}
+    p(z \ge c) = 1 - \Phi(z)
 $$
 
+Since the standard normal distribution is symmetric about $z = 0$ this implies that
+
+$$ p(z \ge c) = p(-z \le -c) $$
+
+### How to Read a Z-Table
+The key to using a z-table is the following:
+* Row headings define the z-score to the tenth decimal place.
+* Column headings add the hundredth decimal place.
+
+For example, to find the critical value for a z-value of 1.27, find the row in the left-most column for 1.2 and then the column on that row for 0.07; the resulting critical value is 0.8980. A sample is show at the end of this page. To use the table, we first determine the
+
+### Test Criteria
+The criteria for performing a test, for both the critical value and p-value approaches, are shown below, where $c_\alpha$ is the critical value for a significance level $\alpha$.
+#### Left-Tailed Test
+
 $$
-    1 - \alpha \tag{right-tailed test}
+    z \le c_\alpha \quad \text{where} \quad z, c_\alpha \lt 0 \tag{critical value approach}
 $$
+
+$$
+    p(z) \le \alpha \tag{p-value approach}
+$$
+
+#### Right-Tailed Test
+
+$$
+    z \ge c_\alpha \quad \text{where} \quad z, c_\alpha \gt 0 \tag{critical value approach}
+$$
+
+$$
+    p(z) \le \alpha \tag{p-value approach}
+$$
+
+#### Two-Tailed Test
+For a two-tailed test the criteria depend on whether our z-value is positive or negative:
+$$
+    z \ge c_\alpha \quad \text{where} \quad z, c_\alpha \gt 0 \tag{critical value approach}
+$$
+
+$$
+    p(z) \le \frac{\alpha}{2}  \tag{p-value approach}
+$$
+
+Or:
+
+$$
+    z \le c_\alpha \quad \text{where} \quad z, c_\alpha \lt 0 \tag{critical value approach}
+$$
+
+$$
+    p(z) \le \frac{\alpha}{2}  \tag{p-value approach}
+$$
+
 
 #### Example
 It is claimed that the mean grade for students in a university is 75. We ask, is this claim true? A random sample of grades of size 100 gives a sample mean of 73. It is known that the population standard deviation is 15.
@@ -50,17 +96,17 @@ $$
 z = \frac{73 - 75}{\frac{15}{\sqrt{100}}} = -1.33
 $$
 
-For our test we choose a significance level of 5%. Using the critical value approach, we will look up the value using a standard z-table (of course, you could use software). Since $H_A$ is about $\mu_A \ne \mu_0$ being different, which includes both $\mu_A \lt \mu_0$ and $\mu_A \gt \mu_0$, we have a two-tailed test. The probability in each tail is given by:
+For our test we choose a significance level of 5%. Using the critical value approach, we will look up the value using a standard z-table (of course, you could use software). Since $H_A$ is about $\mu_A \ne \mu_0$ being different, which includes both $\mu_A \lt \mu_0$ and $\mu_A \gt \mu_0$, we have a two-tailed test. 
+
+What is the critical value for a significance level of 0.05? Since we have a two-sided test the probability (significance level) is split into 0.025 for each tail of the distribution. Find the cell in the table for the probability 0.975 (i.e. $1 - 0.025$); this is row 1.9 and column 0.06. Therefore the critical value for $\alpha = 0.05$ in a two-sided test is $\pm1.96$. We perform the following check:
 
 $$
-1 - \frac{\alpha}{2}
-
-
+-1.33 \le -1.96 \implies \text{false}
 $$
 
--2.33
+Therefore we reject $H_A$ and accept $H_0$.
 
-TODO - finish
+We can repeat the same test but this time use the p-value approach. Looking up the p-value from the z-table: $p(z \le 1.33) =0.9082$. Therefore $p(z \ge 1.33) = 1 - p(z \le 1.33) = 1 - 0.9082 = 0.092$. Since the standard normal distribution is symmetric about $z = 0$ we know that $p(z \ge 1.33) = p(-z \le -1.33)$. Therefore, as $ 0.092 \gt 0.05$ we reject $H_A$ and accept $H_0$.
 
 
 ### Appendix
