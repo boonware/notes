@@ -9,13 +9,15 @@ $$
 Clearly, the standard score follows the same distribution as the measured values $x$ as it is simply rescaled via subtraction and division.
 
 ## Z-Test
-When a hypothesis is about the _mean_ of a distribution we can use a z-test. The z-statistic is defined as follows, where $\mu_0$ is the population mean under the null hypothesis:
+When a hypothesis is about the _mean_ of a distribution we can use a z-test. The z-statistic is defined as follows, where $\mu_0$ is the population mean under the null hypothesis and $\sigma$ is the known (i.e. actual, real) population variance:
 
 $$
-    z = \frac {\overline{x} - \mu_0} { \frac {\sigma} { \sqrt n } }
+    z = \frac {\overline{x} - \mu_0} { \sigma / \sqrt n }
 $$
 
-Fron the Central Limit Theorem we know that the sample mean $\overline{x}$ is approximately normally distributed, so the same distribution applies to the z-statistic. Note that the z-statistic in this case is essentially the same as above for the z-score; the difference between the measured value and the population mean is divided by the population standard deviation. For samples of size $n$, the standard deviation of the distribution of $\overline{x}$ is $\frac{\sigma}{\sqrt{n}}$.
+Fron the Central Limit Theorem we know that the sample mean $\overline{x}$ is approximately normally distributed, so the same distribution applies to the z-statistic. Note that the z-statistic in this case is essentially the same as above for the z-score; the difference between the measured value and the population mean is divided by the population standard deviation. For samples of size $n$, the standard deviation of the distribution of $\overline{x}$ is $\sigma / \sqrt{n}$.
+
+It should be recognised that the z-test has limited practical use as it is unrealistic to think that we'd find ourselves in the situation of knowing the population variance, but not the population mean. However, it serves as a useful introduction to hypothesis testing and more powerful methods.
 
 ## Z-Table
 A standard table for the z-statistic can be used for determining both critical values and p-values. Of course, software is used frequently instead of standard tables. 

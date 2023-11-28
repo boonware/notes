@@ -8,6 +8,7 @@
 * [Continuous Probability Distributions](statistics/continuous_probability_distributions.md)
 * [Hypothesis Testing](statistics/hypothesis_testing.md)
 * [Z-Score & Z-Test](statistics/z_test.md)
+* [Student's T-Test](statistics/t_test.md)
 
 ### Machine Learning
 * [Introduction](machine_learning/introduction.md)
