@@ -19,3 +19,6 @@
 ### Natural Language Processing
 
 * [TF-IDF](nlp/intro.md)
+
+### Special Functions
+* [Gamma Function](special_functions/gamma_function.md)
