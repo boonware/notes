@@ -21,4 +21,4 @@
 * [TF-IDF](nlp/intro.md)
 
 ### Complex Analysis
-* [Complex Numbers](special_functions/gamma_function.md)
+* [Complex Numbers](complex_analysis/complex_numbers.md)
