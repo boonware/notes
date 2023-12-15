@@ -23,3 +23,4 @@ $$
 The probability density function converges to the standard normal distribution as the degrees of freedom $\nu$ increases:
 
 ![Left-Tailed Test](/statistics/img/t-distribution.png)
+
