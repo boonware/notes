@@ -8,6 +8,7 @@ $$
 $$
 
 The point estimate for $\theta$ from the set $\Theta$ of possible values is given by
+
 $$
     \hat{\theta} = \underset{\theta \in \Theta}\argmax L(\theta)
 $$
