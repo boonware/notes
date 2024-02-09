@@ -9,6 +9,8 @@
 * [Hypothesis Testing](statistics/hypothesis_testing.md)
 * [Z-Score & Z-Test](statistics/z_test.md)
 * [Student's T-Test](statistics/t_test.md)
+* [Maximum Likelihood Estimation](statistics/maximum_likelihood_estimation.md)
+* [Power Transforms](statistics/power_transforms.md)
 
 ### Machine Learning
 * [Introduction](machine_learning/introduction.md)
