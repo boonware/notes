@@ -10,7 +10,7 @@ $$
 The point estimate for $\theta$ from the set $\Theta$ of possible values is given by
 
 $$
-    \hat{\theta} = \underset{\theta \in \Theta}\argmax L(\theta)
+    \hat{\theta} = \underset{\theta \in \Theta}{\mathrm{argmax}}\ L(\theta)
 $$
 
 The point estimate can be found by differentiating the likelihood function $L(\theta)$ to find a maximum:
