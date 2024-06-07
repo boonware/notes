@@ -22,5 +22,8 @@
 
 * [TF-IDF](nlp/intro.md)
 
-### Complex Analysis
+### Mathematics
 * [Complex Numbers](complex_analysis/complex_numbers.md)
+* [Hilbert Spaces](linear_algebra/hilbert_spaces.md)
+* [Vector Spaces](linear_algebra/vector_spaces.md)
+
