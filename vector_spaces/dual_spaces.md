@@ -66,7 +66,7 @@ This can be represented as the product of a row and column matrix:
 
 $$
     \begin{bmatrix} g_1 & \dots & g_n \end{bmatrix}
-    \begin{bmatrix} w_1  \\ \vdots \\ w_n \end{bmatrix}
+    \begin{bmatrix} w_1  \\\ \vdots \\\ w_n \end{bmatrix}
 $$
 
 ## Visualization
