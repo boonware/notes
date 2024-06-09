@@ -85,7 +85,7 @@ $$
 
 Therefore, a linear functional can be visualized in $V$ as the set of planes perpendicular to the normal vector whose components are given by $g_i$. This can clearly be extended to hyperplanes in higher dimensions.
 
-![Visualization of Covectors](/img/vector_spaces/covectors.png | width=100)
+![Visualization of Covectors](/img/vector_spaces/covectors.png)
 
 ## Dual of the Dual
 As $V^*$ is itself a vector space, we can consider the dual  $V^{**}$ of this dual space. TODO
