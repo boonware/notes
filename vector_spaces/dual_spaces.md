@@ -65,18 +65,18 @@ $$
 This can be represented as the product of a row and column matrix:
 
 $$
-    \begin{bmatrix} g_1 & \dots & g_n \end{bmatrix} \; 
-    \begin{bmatrix} w_1  \\ \vdots \\ w_n \end{bmatrix} \;
+    \begin{bmatrix} g_1 & \dots & g_n \end{bmatrix}
+    \begin{bmatrix} w_1  \\ \vdots \\ w_n \end{bmatrix}
 $$
 
 ## Visualization
-Linear functionals are vectors in their own right in $V^*$ but we can also visualize them in $V$. Recall the equation for a plane in $\reals^3$, where $(a,b,c)$ are the components in the $(\hat x, \hat y, \hat z)$ directions of the vector normal to the plane:
+Linear functionals are vectors in their own right in $V^*$ but we can also visualize them in $V$. Recall the equation for a plane in $\mathbb{R}^3$, where $(a,b,c)$ are the components in the $(\hat x, \hat y, \hat z)$ directions of the vector normal to the plane:
 
 $$
     ax + by + cz = d 
 $$
 
-Now consider all vectors $\vec v \in \reals^3$ for which the linear functional $\omega$ is equal to some constant $\alpha$. 
+Now consider all vectors $\vec v \in \mathbb{R}^3$ for which the linear functional $\omega$ is equal to some constant $\alpha$. 
 This equation is idential in form to the equation of a plane:
 
 $$
