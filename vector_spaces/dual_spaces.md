@@ -1,6 +1,6 @@
 # Dual Spaces
 
-Every vector space $V$ over a field $\mathbb{F}$ has an associated _dual space_ $V^*$, also denoted $L(V, \mathbb{F})$. Elements of the dual space are sometimes called _covectors_.
+Every vector space $V$ over a field $\mathbb{F}$ has an associated _dual space_ $V^\star$, also denoted $L(V, \mathbb{F})$. Elements of the dual space are sometimes called _covectors_.
 
 ## Linear Functionals
 We define a _linear functional_ on $V$ as a map $\phi: V \to \mathbb{F} $:
@@ -52,7 +52,7 @@ $$
 $$
 
 ## Covectors as Row Vectors
-In matrix notation, elements of the dual space $V^*$ can be regarded as row vectors, in contrast to the standard representation of finite dimensional vectors as column vectors. For a vector $\vec v \in V$ and linear functional (covector) $\vec g \in V^*$:
+In matrix notation, elements of the dual space $V^\star$ can be regarded as row vectors, in contrast to the standard representation of finite dimensional vectors as column vectors. For a vector $\vec v \in V$ and linear functional (covector) $\vec g \in V^\star$:
 
 $$
     \begin{align*}
