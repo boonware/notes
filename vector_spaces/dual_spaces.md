@@ -14,10 +14,10 @@ By this definition the linear functionals are also vector space _homomorphisms_,
 $$
     \phi(\vec u) + \omega(\vec u) = (\phi + \omega)(\vec u)
 $$
+
 $$
     a \phi (\vec u) = (a \phi)(\vec u) 
 $$
-
 
 ## Dual Basis
 For a finite dimensional vector space $V$, let its basis vectors be $\{ e_1, \dots, e_n \}$ and define $n$ linear functionals $\{ \epsilon_1, \dots, \epsilon_n \}$ using the Kronecker delta by
