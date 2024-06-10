@@ -70,7 +70,7 @@ $$
 $$
 
 ## Visualization
-Linear functionals are vectors in their own right in $V^*$ but we can also visualize them in $V$. Recall the equation for a plane in $\mathbb{R}^3$, where $(a,b,c)$ are the components in the $(\hat x, \hat y, \hat z)$ directions of the vector normal to the plane:
+Linear functionals are vectors in their own right in $V^\star$ but we can also visualize them in $V$. Recall the equation for a plane in $\mathbb{R}^3$, where $(a,b,c)$ are the components in the $(\hat x, \hat y, \hat z)$ directions of the vector normal to the plane:
 
 $$
     ax + by + cz = d 
@@ -88,4 +88,4 @@ Therefore, a linear functional can be visualized in $V$ as the set of planes per
 ![Visualization of Covectors](/img/vector_spaces/covectors.png)
 
 ## Dual of the Dual
-As $V^*$ is itself a vector space, we can consider the dual  $V^{**}$ of this dual space. TODO
+As $V^\star$ is itself a vector space, we can consider the dual  $V^{**}$ of this dual space. TODO
