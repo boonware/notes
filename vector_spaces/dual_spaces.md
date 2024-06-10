@@ -26,7 +26,7 @@ $$
     \epsilon_i (e_k) = \delta_{ik} 
 $$
 
-These linear functionals form a basis for $V^*$ known as the _dual basis_, where $dim(V) = dim(V^*)$.
+These linear functionals form a basis for $V^\star$ known as the _dual basis_, where $dim(V) = dim(V^\star)$.
 
 ### Proof
 To show that these vectors form a basis it is sufficient to show that they are linearly independent, that is, we must show
