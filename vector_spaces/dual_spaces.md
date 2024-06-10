@@ -9,7 +9,7 @@ $$
     \phi(a \vec u + b \vec v ) = a \phi(\vec u) + b \phi(\vec v) \quad \text{where} \quad \vec u, \vec v \in V \quad a,b \in \mathbb{F}
 $$
 
-By this definition the linear functionals are also vector space _homomorphisms_, where the field $\mathbb{F}$ is viewed as a one-dimensional vector space; the dual space is also denoted $Hom(V, \mathbb{F})$ for this reasons. These linear functionals are themselves vectors and form the dual space; they can be added and multiplied by scalars from $\mathbb{F}$ to form new linear functionals:
+By this definition the linear functionals are also vector space _homomorphisms_, where the field $\mathbb{F}$ is viewed as a one-dimensional vector space; the dual space is also denoted $Hom(V, \mathbb{F})$ for this reason. These linear functionals are themselves vectors and form the dual space; they can be added and multiplied by scalars from $\mathbb{F}$ to form new linear functionals:
 
 $$
     \phi(\vec u) + \omega(\vec u) = (\phi + \omega)(\vec u)
@@ -76,8 +76,8 @@ $$
     ax + by + cz = d 
 $$
 
-Now consider all vectors $\vec v \in \mathbb{R}^3$ for which the linear functional $\omega$ is equal to some constant $\alpha$. 
-This equation is idential in form to the equation of a plane:
+Now consider all vectors $\vec v \in \mathbb{R}^3$ for which the linear functional $g$ is equal to some constant $\alpha$. 
+This equation is identical in form to the equation of a plane:
 
 $$
     g(\vec v) = g_1 v_1 + g_2 v_2 + g_3 v_3 = \alpha
