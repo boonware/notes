@@ -4,7 +4,7 @@ The total state of the three-qubit system is given by
 
 $$
     \begin{align*}
-        \ket \Psi_{total} &= (\alpha \ket{0}  + \beta \ket{1}) \otimes \frac{1}{\sqrt{2}} (\ket{00} + \ket{11}) \\
+        \ket{\Psi_{total}} &= (\alpha \ket{0}  + \beta \ket{1}) \otimes \frac{1}{\sqrt{2}} (\ket{00} + \ket{11}) \\
         &= \frac{1}{\sqrt{2}} \left( \alpha \ket{000} + \alpha \ket{011} + \beta \ket{100} + \beta \ket{111} \right)
     \end{align*}
 $$
@@ -18,5 +18,5 @@ $$
 Writing the vector in matrix notation, where the order matches the basis states' order above:
 
 $$
-    \Psi_{total}^\intercal = \begin{bmatrix} & \alpha & 0 & 0 & \alpha & \beta & 0 & 0 & \beta & \end{bmatrix}
+    \Psi_{total}^\intercal = \frac{1}{\sqrt{2}} \begin{bmatrix} & \alpha & 0 & 0 & \alpha & \beta & 0 & 0 & \beta & \end{bmatrix}
 $$
