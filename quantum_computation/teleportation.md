@@ -18,5 +18,5 @@ $$
 Writing the vector in matrix notation, where the order matches the basis states' order above:
 
 $$
-    \Psi_{total}^\intercal = \begin{bmatrix} \alpha & 0 & 0 & \alpha & \beta & 0 & 0 & \beta \end{bmatrix}
+    \Psi_{total}^\intercal = \begin{bmatrix} & \alpha & 0 & 0 & \alpha & \beta & 0 & 0 & \beta & \end{bmatrix}
 $$
