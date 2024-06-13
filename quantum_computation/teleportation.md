@@ -59,7 +59,7 @@ $$
         & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & \\
         & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & \\
         & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & \\
-    \end{bmatrix}  \begin{bmatrix} \alpha \\ 0 \\ 0 \\ \alpha \\ \beta \\ 0 \\ 0 \\ \beta \end{bmatrix} = \begin{bmatrix} \alpha \\ 0 \\ 0 \\ \alpha \\ 0 \\ \beta \\ \beta \\ 0 \end{bmatrix} 
+    \end{bmatrix}  \begin{bmatrix} \alpha \\\ 0 \\\ 0 \\\ \alpha \\\ \beta \\\ 0 \\\ 0 \\\ \beta \end{bmatrix} = \begin{bmatrix} \alpha \\\ 0 \\\ 0 \\\ \alpha \\\ 0 \\\ \beta \\\ \beta \\\ 0 \end{bmatrix} 
 $$
 
 Now, the total state is given by
