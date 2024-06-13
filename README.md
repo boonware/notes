@@ -26,3 +26,6 @@
 * [Student's T-Test](statistics/t_test.md)
 * [Maximum Likelihood Estimation](statistics/maximum_likelihood_estimation.md)
 * [Power Transforms](statistics/power_transforms.md)
+
+### Quantum Computation
+* [Teleportation](quantum_computation/teleportation.md)

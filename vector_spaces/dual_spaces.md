@@ -1,6 +1,6 @@
 # Dual Spaces
 
-Every vector space $V$ over a field $\mathbb{F}$ has an associated _dual space_ $V^\star$, also denoted $L(V, \mathbb{F})$. Elements of the dual space are sometimes called _covectors_.
+Every vector space $V$ over a field $\mathbb{F}$ has an associated _dual space_ $V^\star$, also denoted $L(V, \mathbb{F})$. Elements of the dual space are sometimes called _covectors_. In what follows, for clarity, the "arrow" vector notation is used only for elements of the vector space $V$ unless where necessary to _emphasize_ the vector nature of elements of the dual space.
 
 ## Linear Functionals
 We define a _linear functional_ on $V$ as a map $\phi: V \to \mathbb{F} $:
@@ -88,4 +88,26 @@ Therefore, a linear functional can be visualized in $V$ as the set of planes per
 ![Visualization of Covectors](/img/vector_spaces/covectors.png)
 
 ## Dual of the Dual
-As $V^\star$ is itself a vector space, we can consider the dual  $V^{**}$ of this dual space. TODO
+As $V^\star$ is itself a vector space, we can consider the dual $V^{**}$ of this dual space. For finite dimensional vector spaces, the dualing process stops at the first dual; the dual of the dual space is the original vector space $V$.
+
+Similar to how the linear functionals were defined for $V$, consider a map $\bar\omega: V^\star \to \mathbb{F}$ that acts on the dual space. This maps takes a linear functional $g$ and maps it to an element of the field $\mathbb{F}$, however, there will be some vector $\vec v$ that the linear functional $g$ also maps to the same value in $\mathbb{F}$:
+
+$$
+    \bar\omega(g) = g(\vec v) \quad \forall g \in V^\star
+$$
+
+The map $\bar\omega$ is a linear functional in its own right. For $g,h \in V^\star$ and $\alpha,\beta \in \mathbb{F}$:
+
+$$  
+    \begin{align*}
+        \bar\omega(\alpha g + \beta h) = (\alpha g + \beta h)(\vec v) \\
+        = \alpha g(\vec v) + \beta h(\vec v) \\
+        = \alpha \bar \omega(g) + \beta \bar \omega(h) \\
+    \end{align*}
+$$
+
+From the above we see that there is another map $\rho: V \to V^{**}$:
+
+$$
+    \bar\omega(g) = g(\vec v) \implies \rho(\vec v) = \bar \omega
+$$
