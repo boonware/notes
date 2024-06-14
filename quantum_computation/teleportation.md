@@ -83,9 +83,36 @@ $$
 
 $$
     \begin{align*}
-        H \Psi_{total} &= \frac{1}{2} \left[ \alpha H \ket{0} \left( \ket{00} + \ket{11} \right) + \beta H \ket{1} \left( \ket{10} + \ket{01} \right) \right] \\
+        H \ket{\Psi_{total}} &= \frac{1}{2} \left[ \alpha H \ket{0} \left( \ket{00} + \ket{11} \right) + \beta H \ket{1} \left( \ket{10} + \ket{01} \right) \right] \\
         &= \frac{1}{2} \left[ \alpha \left( \ket{0} + \ket{1} \right) \left( \ket{00} + \ket{11} \right) + \beta \left(\ket{0} - \ket{1} \right) \left( \ket{10} + \ket{01} \right) \right] \\
+        &= \frac{1}{2} \left[ \alpha \ket{00} \left( \ket{0} + \ket{1} \right) + \alpha \ket{11} \left( \ket{0} + \ket{1} \right) + \beta \ket{10} \left(\ket{0} - \ket{1} \right) + \beta \ket{01} \left(\ket{0} - \ket{1} \right) \right] \\
     \end{align*}
 $$
 
+The above can be refactored using the associativity of the tensor product:
 
+$$
+    \ket{a} \otimes \ket{b} \otimes \ket{c} = \ket{a} \otimes \ket{bc} = \ket{ab} \otimes \ket{c} = \ket{abc}
+$$
+
+This associativity property allows us to group Alice's qubits into two-qubit basis states and isolate Bob's qubits into one-qubit basis states:
+
+$$
+    \begin{align*}
+        H \ket{\Psi_{total}} &= \frac{1}{2} \left[ \alpha \ket{00} \left( \ket{0} + \ket{1} \right) + \alpha \ket{11} \left( \ket{0} + \ket{1} \right) + \beta \ket{10} \left(\ket{0} - \ket{1} \right) + \beta \ket{01} \left(\ket{0} - \ket{1} \right) \right] \\
+        &= \frac{1}{2} \left[ \alpha\ket{0}\ket{00} + \alpha\ket{0}\ket{11} + \alpha\ket{1}\ket{00} + \alpha\ket{1}\ket{11} + \beta\ket{0}\ket{10} + \beta\ket{0}\ket{01} - \beta\ket{1}\ket{10} - \beta\ket{1}\ket{01} \right] \\
+        &= \frac{1}{2} \left[ \alpha\ket{00}\ket{0} + \alpha\ket{01}\ket{1} + \alpha\ket{10}\ket{0} + \alpha\ket{11}\ket{1} + \beta\ket{01}\ket{0} + \beta\ket{00}\ket{1} - \beta\ket{11}\ket{0} - \beta\ket{10}\ket{1} \right] \\
+        &= \frac{1}{2} \left[ \ket{00}(\alpha\ket{0} + \beta\ket{1}) + \ket{01}(\alpha\ket{1} + \beta\ket{0}) + \ket{10}(\alpha\ket{0} - \beta\ket{1}) + \ket{11}(\alpha\ket{1} - \beta\ket{0}) \right]
+    \end{align*}
+$$
+
+The expression above is naturally broken into four terms. If Alice performs a measurement and receives the state $\ket{00}$, for example, then Bob's qubit will be in the state $\alpha\ket{0} + \beta\ket{1}$, which is the original state we wished to transmit! Of course, to know which state his qubit is in, Alice must send her measurement outcome to Bob, i.e. in order for the quantum state to be teleported Alice must send two _classical_ bits to Bob. Bob can recover the original state by performing the following operations on his state, once he knows Alice's measurement outcome:
+
+$$
+    \begin{align*}
+        & \ket{00} \rightarrow I \quad \text{(identity)} \\
+        & \ket{01} \rightarrow X \quad \text{(Pauli X-gate)} \\
+        & \ket{10} \rightarrow Z \quad \text{(Pauli Z-gate)} \\
+        & \ket{11} \rightarrow ZX \quad \text{(Pauli Z and X-gate)} \\
+    \end{align*}
+$$
