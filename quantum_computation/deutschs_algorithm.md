@@ -50,7 +50,25 @@ $$
 This is a remarkable state! In a _single_ application of the gate $U_f$ the output state contains both values $f(0)$ and $f(1)$, and unlike before, we know for which input we have received $f(x)$ due to the value of the first qubit. Of course, if we measure the output state we will get information on only one of the values of $f(x)$ and not both, since the superposition will collapse.
 
 ## Generalizing to N Qubits
-TODO
+Applying a Hadamard gate to $n$ qubits in parallel, each in the initial state $\ket{0}$, results in the state:
+
+$$
+    \frac{1}{\sqrt{2^n}} \sum_x \ket{x}
+$$
+
+where the sum is over all possible values of $x$. Thus, parallel evaluation of a function with n-bit input $x$ and 1-bit output, $f(x)$, can be achieved in the following way:
+
+1. Prepare the initial $n+1$ qubit state $\ket{0}^{\otimes n}\ket{0}$.
+2. Apply a Hadamard gate to the first $n$ qubits.
+3. Apply the quantum circuit $U_f$ implementing the function $f$.
+
+The outcome of the steps above is the state
+
+$$
+    \frac{1}{\sqrt{2^n}} \sum_x \ket{x} \ket{f(x)}
+$$
+
+Although the resulting state is a superposition of all possible outcomes of $f$, we can only measure _one_ value. Quantum computation requires something more than just quantum parallelism in order to extract information about more than one value of $f$. Deutsch's algorithm demonstrates one example.
 
 ## Deutsch's Algorithm
 Suppose we do not know if the functiona $f$ is constant or balanced, that is, is $f(0) = f(1)$ or $f(0) \ne f(1)$? Let us start with the states
