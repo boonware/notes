@@ -30,3 +30,4 @@
 ### Quantum Computation
 * [Teleportation](quantum_computation/teleportation.md)
 * [Quantum Parallelism & Deutsch's Algorithm](quantum_computation/deutschs_algorithm.md)
+* [Deutsch-Josza Algorithm](quantum_computation/deutsch_josza_algorithm.md)
