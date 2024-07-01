@@ -15,7 +15,7 @@ $$
     \frac{\ket{f(0)} + \ket{f(1)}}{\sqrt{2}} = \frac{\ket{0} + \ket{1}}{\sqrt{2}}
 $$
 
-If $f$ is constant we will receive always 0 or always 1, but again, there is nothing that really sets this circuit apart from the previous circuit; is it no more interesting that a classical circuit.
+If $f$ is constant we will receive always 0 or always 1, but again, there is nothing that really sets this circuit apart from the previous circuit; it is no more interesting that a classical circuit.
 Instead, consider the following circuit with _two_ input qubits and _two_ output classical bits, where the input qubits are both in the ground state:
 
 $$
@@ -72,7 +72,7 @@ $$
 Although the resulting state is a superposition of all possible outcomes of $f$, we can only measure _one_ value. Quantum computation requires something more than just quantum parallelism in order to extract information about more than one value of $f$. Deutsch's algorithm demonstrates one example.
 
 ## Deutsch's Algorithm
-Suppose we do not know if the function $f$ is constant or balanced, that is, is $f(0) = f(1)$ or $f(0) \ne f(1)$? Let us start with the states
+Suppose we do not know if the function $f$ is constant or balanced, that is, is it the case that $f(0) = f(1)$ or $f(0) \ne f(1)$? Let us start with the states
 
 $$
     q_0 = \ket{0} \quad q_1 = \ket{1}
@@ -91,7 +91,13 @@ $$
     \end{align*}
 $$
 
-Depending on the value of $f(x)$ for the qubit $q_0$, there are four possible output states:
+Depending on the value of $f(x)$ for the qubit $q_0$, after applying the gate $U_f$ there are four possible output states which can be  written concisely as:
+
+$$
+    \sum_x (-1)^{f(x)} \ket{x} \otimes \left( \frac{ \ket{0} - \ket{1} }{ \sqrt{2} } \right) \quad \text{where} \quad x \in \{0, 1\} 
+$$
+
+Writing out the four states for clarity:
 
 $$
     \begin{align*}
