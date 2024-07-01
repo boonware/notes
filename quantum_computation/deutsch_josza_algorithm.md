@@ -16,7 +16,7 @@ $$
 The Hadamard transform is applied to all qubits, resulting in the state
 
 $$
-    \ket{\Psi_1} = \sum_x \frac{ \ket{x} }{ \sqrt{2^n} } \otimes \left( \frac{ \ket{0} - \ket{1} }{ \sqrt{2} } \right) \quad \text{where} \quad x \in \{0, 1\}^n
+    \ket{\Psi_1} = \sum_x \frac{ \ket{x} }{ \sqrt{2^n} } \otimes \left( \frac{ \ket{0} - \ket{1} }{ \sqrt{2} } \right) \quad \text{where} \quad x \in \lbrace 0, 1 \rbrace^n
 $$
 
 As in Deutsch's algorithm $U_f$ is defined as
@@ -41,13 +41,13 @@ $$
 We see now that the results of evaluating $f(x)$ on all input $x \in \{0,1\}^n$ are stored in the amplitudes of the superposition state of the query register. We now interfere the terms in the superposition by applying a Hadamard transform to the query register. To understand how to calculate the result of this transform, consider the familiar result of applying a Hadamard gate to the state $\ket{x} =\ket{0}$ or $\ket{x} = \ket{1}$. Both results can be expressed in the following equation:
 
 $$
-    H \ket{x} = \sum_k \frac{(-1)^{xk}}{\sqrt{2}} \ket{k} \quad \text{where} \quad k \in \{0, 1\} 
+    H \ket{x} = \sum_k \frac{(-1)^{xk}}{\sqrt{2}} \ket{k} \quad \text{where} \quad k \in \lbrace 0, 1 \rbrace 
 $$
 
 Therefore:
 
 $$
-   \ket{\Psi_3} = \sum_x \sum_z \frac{ (-1)^{f(x)} (-1)^{\vec{x} \cdot \vec{z}} }{2^n} \ket{z} \otimes \frac{ \left( \ket{0} - \ket{1} \right) }{\sqrt{2}}  \quad \text{where} \quad \vec{x} \cdot \vec{z} = \sum_{i=1}^n x_i z_i \quad x,z \in \{0, 1\}^n
+   \ket{\Psi_3} = \sum_x \sum_z \frac{ (-1)^{f(x)} (-1)^{\vec{x} \cdot \vec{z}} }{2^n} \ket{z} \otimes \frac{ \left( \ket{0} - \ket{1} \right) }{\sqrt{2}}  \quad \text{where} \quad \vec{x} \cdot \vec{z} = \sum_{i=1}^n x_i z_i \quad x,z \in \lbrace 0, 1 \rbrace^n
 $$
 
 Notice that for the state where $\ket{z} = \ket{0}^{ \otimes n}$, the amplitude is given by:
