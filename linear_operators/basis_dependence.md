@@ -1,6 +1,5 @@
 ## Linear Operators
 
-
 ## Basis Dependence
 Some operations performed on a linear operator depend on the basis chosen to represent the operator, while others do not. For a basis dependent operation we must specify in which basis we are performing the operation in order to fully describe that operation, however, for basis independent operations we do not need to specify the basis.
 
@@ -77,7 +76,7 @@ Therefore, the transpose operation is basis dependent for the complex numbers, b
 Define a linear operator $B$ to be the complex conjugate of $A$
 
 $$
-    [B]_\alpha = [A]_\alpha^*
+    [B]_\alpha = [A]_\alpha^\star
 $$
 
 Translate $A$ to a new basis $\beta$
@@ -85,18 +84,18 @@ Translate $A$ to a new basis $\beta$
 $$
     \begin{align*}
         & [A]_\beta = P^{-1} [A]_\alpha P \\
-        & [A]_\beta^* = (P^{-1} [A]_\alpha P)^* = (P^{-1})^* [A]_\alpha^* P^* \\
+        & [A]_\beta^\star = (P^{-1} [A]_\alpha P)^\star = (P^{-1})^\star [A]_\alpha^\star P^\star \\
     \end{align*}
 $$
 
 Translate $B$ to the same basis
 
 $$
-    [B]_\beta = P^{-1} [B]_\alpha P = P^{-1} [A]_\alpha^* P
+    [B]_\beta = P^{-1} [B]_\alpha P = P^{-1} [A]_\alpha^\star P
 $$
 
 We see that the complex conjugate is basis dependent:
 
 $$
-    [B]_\beta \neq [A]_\beta^*
+    [B]_\beta \neq [A]_\beta^\star
 $$
