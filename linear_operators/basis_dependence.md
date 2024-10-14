@@ -11,10 +11,3 @@ $$
 $$
 
 Translating the linear operator $A$ to a new basis is given by a _similarity transformation_ with a unitary operator $P$:
-
-$$
-    \begin{align*}
-        & [A]_\beta = P^{-1} [A]_\alpha P \\
-        & [A]_\beta^{\dagger} = (P^{-1} [A]_\alpha P)^{\dagger} = P^{-1} [A]_\alpha^{\dagger} P \\
-    \end{align*}
-$$
