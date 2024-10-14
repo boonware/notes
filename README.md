@@ -11,7 +11,11 @@
 ## Mathematics
 
 ### Vector Spaces
-* [Dual Spaces](vector_spaces/dual_spaces.md)
+* [Dual Space](vector_spaces/dual_space.md)
+* [Hilbert Space](vector_spaces/hilbert_space.md)
+
+### Linear Operators
+* [Basis Dependence](linear_operators/basis_dependence.md)
 
 ### Complex Analysis
 * [Complex Numbers](complex_analysis/complex_numbers.md)
