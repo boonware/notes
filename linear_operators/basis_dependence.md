@@ -7,7 +7,7 @@ Some operations performed on a linear operator depend on the basis chosen to rep
 For operators over the complex numbers, the conjugate transpose (Hermitian conjugate) is basis independent. Let $[A]_\alpha$ be an operator $A$ represented on the basis $\alpha$, and define a new operator $B$ equal to its conjugate transpose:
 
 $$
-[B]_\alpha = [A]_\alpha
+    \[B\]_\alpha = \[A\]_\alpha
 $$
 
 Translating the linear operator $A$ to a new basis is given by a _similarity transformation_ with a unitary operator $P$:
