@@ -22,14 +22,19 @@ We see that $A$ must be a matrix to account for all three possibilities $n = m$,
 
 $$
     \begin{bmatrix}
-        a_{11} & a_{12} \\ a_{21} & a_{22} \\ a_{31} & a_{32} 
+        a_{11} & a_{12} \\
+        a_{21} & a_{22} \\
+        a_{31} & a_{32}
     \end{bmatrix}
     \begin{bmatrix}
-        v_{1} \\ v_{2}
+        v_{1} \\
+        v_{2}
     \end{bmatrix} 
     =
     \begin{bmatrix}
-        w_{1} \\ w_{2} \\ w_{3}
+        w_{1} \\
+        w_{2} \\
+        w_{3}
     \end{bmatrix}
 $$
 
