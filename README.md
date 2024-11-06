@@ -15,6 +15,7 @@
 * [Hilbert Space](vector_spaces/hilbert_space.md)
 
 ### Linear Operators
+* [Representation](linear_operators/representation.md)
 * [Basis Dependence](linear_operators/basis_dependence.md)
 
 ### Complex Analysis
