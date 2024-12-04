@@ -21,6 +21,9 @@
 ### Complex Analysis
 * [Complex Numbers](complex_analysis/complex_numbers.md)
 
+### Group Theory
+* [Exercise Solutions (Stone & Goldbart)](group_theory/stone_goldbart_solutions.md)
+
 ### Statistics
 
 * [Introduction](statistics/introduction.md)
