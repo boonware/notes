@@ -30,9 +30,9 @@ $$
 $$
 
 $$
-    \exists g \in G \thickspace | \thickspace gk = kg \thickspace \forall k \in G \implies g^{-1}gkg^{-1} = g^{-1}kgg^{-1} \iff kg^{-1} = g^{-1}k \iff g^{-1} \in Z(G) \tag{Inverses} 
+    \exists g \in G \enspace | \enspace gk = kg \enspace \forall k \in G \implies g^{-1}gkg^{-1} = g^{-1}kgg^{-1} \iff kg^{-1} = g^{-1}k \iff g^{-1} \in Z(G) \tag{Inverses} 
 $$
 
 $$
-    \exists g, k \in G \thickspace | \thickspace gc = cg, kc = ck \thickspace \forall c \in G \implies gkc = gck \iff gkc = cgk \iff gk \in Z(G) \tag{Closure} 
+    \exists g, k \in G \enspace | \enspace gc = cg, kc = ck \enspace \forall c \in G \implies gkc = gck \iff gkc = cgk \iff gk \in Z(G) \tag{Closure} 
 $$
