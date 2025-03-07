@@ -11,18 +11,18 @@ The set of elements for which a given $x \in X$ is mapped to by $G$ is called th
 
 ### Fixed Points
 
-The set of elements of $X$ that are mapped to themselves are called the _fixed points_ of the group action: $\{ x : gx = x \enspace \forall g \in G \}$.
+The set of elements of $X$ that are mapped to themselves by all $g \in G$ are called the _fixed points_ of the group action: $\{ x : gx = x \enspace \forall g \in G \}$.
 
 ### Transitive Actions
 
- If for any $x, y \in X$ there is a $g \in G$ such that $gx = y$ the group action is called _transitive_; since every element of $X$ is mapped to every other element by some $g$, there is only _one_ orbit for a transitive group action, i.e. the entire set $X$. If _any_ $x \in X$ has the entire set $X$ as its orbit then the group is transitive as this implies every element is mapped to every other element, for example:
+ If for any $x, y \in X$ there is a $g \in G$ such that $gx = y$ the group action is called _transitive_; since every element of $X$ is mapped to every other element by some $g$, there is only _one_ orbit for a transitive group action, the entire set $X$. If _any_ $x \in X$ has the entire set $X$ as its orbit then the group is transitive as this implies every element is mapped to every other element, for example:
 
 $$
-  g_1 x = y, \enspace g_2 x = z \implies g_2 g_1^{-1} z = y
+  g_1 x = y, \enspace g_2 x = z \implies g_1 g_2^{-1} z = y
 $$
 
 ### Faithful/Effective Actions
-TODO
+An action is called faithful or effective if there are no $g \in G$ except the identity element such that $gx = x$ for all $x \in X$.
 
 ### Free Actions
 TODO

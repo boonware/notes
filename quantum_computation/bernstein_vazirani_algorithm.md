@@ -14,3 +14,61 @@ The value of $x$ can be determined by calling $f$ with $a$ set to each possible 
 
 ## Quantum Solution
 TODO
+
+$$
+    \sum_{x \in S^n} (-1)^{x \cdot y} = \begin{cases}
+      0 & \text{if}\ y \ne 0^n \\
+      2^n & \text{if}\ y = 0^n
+    \end{cases}
+$$
+
+---
+
+### Proof
+
+Case $y = 0^n$:
+
+$$
+    \left | S^n \right | = 2^n \implies \sum_{x \in S^n}(-1)^{x \cdot y} = \sum_{x \in S^n}(-1)^{x \cdot 0^{n}} = \sum_{x \in S^n}(-1)^0 = 2^n
+$$
+
+Case $y \ne 0^n$:
+
+Let $x = (\ldots b_i \ldots)^n$ represent a string of $n$ bits, where $b_i$ is the $i$th bit. For each $x \in S$ we can define a conjugate bit string $\bar{x}$:
+
+$$
+    \forall x \in S^n \ \exists! \ \bar{x} \in S^n \ | \ x \cdot y = c \implies \bar{x} \cdot y = c \oplus 1
+$$
+
+Let $k$ be some number such that $y_k = 1$, then by the definition of $x \cdot y$ it must be the case that
+
+$$
+    x = (\ldots b_k \ldots)^n \implies \bar{x} = (\ldots b_k \oplus 1 \ldots)^n
+$$
+
+That is, by flipping only one bit $b_k$ in $x$, which is at the same position as $y_k = 1$ in $y$, we are guaranteed that $x \cdot y$ will also flip:
+
+$$
+    (\ldots b_k \ldots)^n \cdot y = c \implies (\ldots b_k \oplus 1\ldots)^n \cdot y = c \oplus 1 \\
+    \bar{x} \cdot y = (x \cdot y) \oplus 1
+$$
+
+Note that choosing a different $k$ produces a different set of conjugates; the choice of $k$ does not matter as long as it is fixed for all $x \in S$ and $y_k = 1$. For each $x \in S$ its corresponding $\bar{x}$ is unique for the chosen $k$, that is, no two bit strings have the same conjugate; suppose there is another bit string $a$ such that $\bar{a} = \bar{x}$, then
+
+$$
+    (\ldots \bar{a}_k \ldots) = (\ldots \bar{x}_k \ldots) = (\ldots x_k \oplus 1 \ldots) \implies a = x
+$$
+
+Now, by the definition of $\bar{x}$
+
+$$
+    (-1)^{x \cdot y} = - (-1)^{ \bar{x} \cdot y}
+$$
+
+Therefore, writing the sum to include both each $x_i$ and its conjugate $\bar{x}_i$, and only summing to $2^n/2$ since each expansion of the sum contains two elements, we have
+
+$$
+    \sum_{x \in S^n} (-1)^{x \cdot y} = \sum_{i = 1}^{2^{n-1}} (-1)^{x_i \cdot y} + (-1)^{ \bar{x}_i \cdot y} = \sum_{i = 1}^{2^{n-1}} 0 = 0
+$$
+
+---
