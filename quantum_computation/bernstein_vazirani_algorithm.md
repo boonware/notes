@@ -34,7 +34,7 @@ $$
 
 Case $y \ne 0^n$:
 
-Let $x = (\ldots b_i \ldots)^n$ represent a string of $n$ bits, where $b_i$ is the $i$th bit. For each $x \in S$ we can define a conjugate bit string $\bar{x}$:
+Let $x = (\ldots b_i \ldots)^n$ represent a string of $n$ bits, where $b_i$ is the bit at position $i$. For each $x \in S$ we can define a conjugate bit string $\bar{x}$:
 
 $$
     \forall x \in S^n \ \exists! \ \bar{x} \in S^n \ | \ x \cdot y = c \implies \bar{x} \cdot y = c \oplus 1
@@ -49,7 +49,10 @@ $$
 That is, by flipping only one bit $b_k$ in $x$, which is at the same position as $y_k = 1$ in $y$, we are guaranteed that $x \cdot y$ will also flip:
 
 $$
-    (\ldots b_k \ldots)^n \cdot y = c \implies (\ldots b_k \oplus 1\ldots)^n \cdot y = c \oplus 1 \\
+    (\ldots b_k \ldots)^n \cdot y = c \implies (\ldots b_k \oplus 1\ldots)^n \cdot y = c \oplus 1
+$$
+
+$$
     \bar{x} \cdot y = (x \cdot y) \oplus 1
 $$
 
