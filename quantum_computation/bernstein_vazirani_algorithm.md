@@ -71,7 +71,7 @@ $$
 Therefore, writing the sum to include both each $x_i$ and its conjugate $\bar{x}_i$, and only summing to $2^n/2$ since each expansion of the sum contains two elements, we have
 
 $$
-    \sum_{x \in S^n} (-1)^{x \cdot y} 
+    \sum_{x \in S^n} (-1)^{x \cdot y} = \sum_{i = 1}^{2^{n-1}} (-1)^{x_i \cdot y} + (-1)^{ \bar{x}_i \cdot y}
 $$
 
 ---
