@@ -34,10 +34,10 @@ $$
 
 Case $y \ne 0^n$:
 
-Let $x = (\ldots b_i \ldots)^n$ represent a string of $n$ bits, where $b_i$ is the bit at position $i$. For each $x \in S$ we can define a conjugate bit string $\bar{x}$:
+Let $x = (\ldots b_i \ldots)^n$ represent a string of $n$ bits, where $b_i$ is the bit at position $i$. For each $x \in S^n$ we can define a conjugate bit string $\bar{x}$:
 
 $$
-    \forall x \in S^n \ \exists! \ \bar{x} \in S^n \ | \ x \cdot y = c \implies \bar{x} \cdot y = c \oplus 1
+    \forall x, y \in S^n, k \in \N \ | \ y_k = 1 \ \exists! \ \bar{x} \in S^n \ | \ x \cdot y = c \implies \bar{x} \cdot y = c \oplus 1
 $$
 
 Let $k$ be some number such that $y_k = 1$, then by the definition of $x \cdot y$ it must be the case that

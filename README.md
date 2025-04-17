@@ -33,6 +33,7 @@
 * [Hypothesis Testing](statistics/hypothesis_testing.md)
 * [Z-Score & Z-Test](statistics/z_test.md)
 * [Student's T-Test](statistics/t_test.md)
+* [Pearson's Chi-Squared Test](statistics/chi_squared_test.md)
 * [Maximum Likelihood Estimation](statistics/maximum_likelihood_estimation.md)
 * [Power Transforms](statistics/power_transforms.md)
 
