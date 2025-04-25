@@ -6,7 +6,7 @@ $$
 $$
 
 $$
-    z = a  + ib \quad a,b \in \R \quad z \in \Complex
+    z = a  + ib \quad a,b \in \mathbb{R} \quad z \in \mathbb{C}
 $$
 
 The real and imaginary parts can be identified as follows:
