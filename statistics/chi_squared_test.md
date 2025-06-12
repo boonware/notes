@@ -56,5 +56,9 @@ Using a standard table we finding the critical value by looking up the row that 
 ### Type 2 - Independence
 In this test the aim is to determine if two categorical variables are related, that is, if the value of either one of the variables depends on the value of the other.
 
+#### Example
+
+
+
 ### Type 3 - Homogeneity
 TODO

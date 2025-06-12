@@ -1,7 +1,7 @@
 # Bernstein-Vazirani Algorithm
 
 ## Problem Statement
-Consider a function $f(a, x)$ tha takes two binary numbers $a$ and $x$ of length $n$, computes their inner product and returns the value modulo 2:
+Consider a function $f(a, x)$ that takes two binary numbers $a$ and $x$ of length $n$, computes their inner product and returns the value modulo 2:
 
 $$
     f (a, x) = \langle a, x \rangle \bmod 2 \quad \text{where} \quad a, x \in \{0, 1\}^n
