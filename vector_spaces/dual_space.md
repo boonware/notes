@@ -100,16 +100,16 @@ The map $\bar\omega$ is a linear functional in its own right. For $g,h \in V^\st
 
 $$  
     \begin{align*}
-        \bar\omega(\alpha g + \beta h) = (\alpha g + \beta h)(\vec v) \\
+        \bar{\omega}(\alpha g + \beta h) = (\alpha g + \beta h)(\vec v) \\
         = \alpha g(\vec v) + \beta h(\vec v) \\
-        = \alpha \bar \omega(g) + \beta \bar \omega(h) \\
+        = \alpha \bar{\omega}(g) + \beta \bar{\omega}(h) \\
     \end{align*}
 $$
 
-As there is a way to associate every $v \in V$ with an $\bar{\omega} \in V^{**}$, this implies the existence of a map $\rho: V \to V^{**}$:
+As there is a way to associate every $v \in V$ with an $\bar{\omega} \in V^{\star \star}$, this implies the existence of a map $\rho: V \to V^{\star \star}$:
 
 $$
-    \bar\omega(g) = g(\vec v) \implies \rho(\vec v) = \bar \omega
+    \bar{\omega}(g) = g(\vec v) \implies \rho(\vec v) = \bar{\omega}
 $$
 
 The map $\rho$ is linear:
@@ -135,7 +135,7 @@ $$
     \sum_{i=1}^n \bar{a}_i \rho(e_i) = 0 \quad \implies \quad \bar{a_i} = 0, \forall \bar{a_i} \in \mathbb{F}
 $$
 
-We can apply the linear functional above above to any basis vector $\epsilon_k \in V^*$:
+We can apply the linear functional above above to any basis vector $\epsilon_k \in V^{\star}$:
 
 $$
     \sum_{i=1}^n \bar{a}_i \rho(e_i)(\epsilon_k) = 0
@@ -145,8 +145,7 @@ $$
     \begin{align*}
         \rho(e_i)(\epsilon_k) = \epsilon_k(e_i) = \delta_{ik} \\
         \bar{a}_k \rho(e_k)(\epsilon_k) = 0 \\
-        
-        a_k 1  = 0 \\
+        a_k 1 = 0 \\
         a_k = 0
     \end{align*}
 $$
@@ -156,7 +155,7 @@ $$
 The map $\rho$ is onto as every $\bar{\omega} \in V^{**}$ is mapped to by some vector in $V$, as we can see by the linearity of $\rho$:
 
 $$
-    \bar{\omega} = \sum_{i=1}^n \bar{a}_i \rho(e_i) =  \sum_{i=1}^n \rho(\bar{a}_i e_i) = \rho(\sum_{i=1}^n \bar{a}_i e_i) \quad \bar{a}_i \in \mathbb{F}
+    \bar{\omega} = \sum_{i=1}^n \bar{a}_i \rho(e_i) = \sum_{i=1}^n \rho(\bar{a}_i e_i) = \rho(\sum_{i=1}^n \bar{a}_i e_i) \quad \bar{a}_i \in \mathbb{F}
 $$
 
-The map $\rho$ is also one-to-one because by the definition of a basis each vector $\sum_{i=1}^n \bar{a}_i e_i$ is unique. Therefore, the map $\rho$ is an isomorphism between $V$ and $V^{**}$. Note that the relation $\bar\omega(g) = g(\vec v)$ makes no reference to a basis so we call $V \cong V^{**}$ a _natural isomorphism_; there is no ambiguity in writing $\vec{v}(g) = g(\vec v)$.
+The map $\rho$ is also one-to-one because by the definition of a basis each vector $\sum_{i=1}^n \bar{a}_i e_i$ is unique. Therefore, the map $\rho$ is an isomorphism between $V$ and $V^{\star \star}$. Note that the relation $\bar{\omega}(g) = g(\vec v)$ makes no reference to a basis so we call $V \cong V^{\star \star}$ a _natural isomorphism_; there is no ambiguity in writing $\vec{v}(g) = g(\vec v)$.
