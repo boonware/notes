@@ -152,10 +152,10 @@ $$
 
 ## Natural Isomorphism
 
-The map $\rho$ is onto as every $\bar{\omega} \in V^{**}$ is mapped to by some vector in $V$, as we can see by the linearity of $\rho$:
+The map $\rho$ is onto as every $\bar{\omega} \in V^{\star \star}$ is mapped to by some vector in $V$, as we can see by the linearity of $\rho$:
 
 $$
     \bar{\omega} = \sum_{i=1}^n \bar{a}_i \rho(e_i) = \sum_{i=1}^n \rho(\bar{a}_i e_i) = \rho(\sum_{i=1}^n \bar{a}_i e_i) \quad \bar{a}_i \in \mathbb{F}
 $$
 
-The map $\rho$ is also one-to-one because by the definition of a basis each vector $\sum_{i=1}^n \bar{a}_i e_i$ is unique. Therefore, the map $\rho$ is an isomorphism between $V$ and $V^{\star \star}$. Note that the relation $\bar{\omega}(g) = g(\vec v)$ makes no reference to a basis so we call $V \cong V^{\star \star}$ a _natural isomorphism_; there is no ambiguity in writing $\vec{v}(g) = g(\vec v)$.
+The map $\rho$ is also one-to-one because by the definition of a basis each vector $\sum_{i=1}^n \bar{a}_i e_i$ is unique. Therefore, the map $\rho$ is an isomorphism between $V$ and $V^{\star \star}$. Note that the relation $\bar{\omega}(g) = g(\vec{v})$ makes no reference to a basis so we call $V \cong V^{\star \star}$ a _natural isomorphism_; there is no ambiguity in writing $\vec{v}(g) = g(\vec{v})$.
