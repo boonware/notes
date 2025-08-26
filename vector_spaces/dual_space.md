@@ -1,6 +1,6 @@
 # Dual Spaces
 
-Every vector space $V$ over a field $\mathbb{F}$ has an associated _dual space_ $V^\star$, also denoted $L(V, \mathbb{F})$. Elements of the dual space are sometimes called _covectors_. In what follows, for clarity, the "arrow" vector notation is used only for elements of the vector space $V$ unless where necessary to _emphasize_ the vector nature of elements of the dual space.
+Every finite-dimensional vector space $V$ over a field $\mathbb{F}$ has an associated _dual space_ $V^\star$, also denoted $L(V, \mathbb{F})$. Elements of the dual space are sometimes called _covectors_. In what follows, for clarity, the "arrow" vector notation is used only for elements of the vector space $V$ unless where necessary to _emphasize_ the vector nature of elements of the dual space.
 
 ## Linear Functionals
 We define a _linear functional_ on $V$ as a map $\phi: V \to \mathbb{F} $:
@@ -106,8 +106,57 @@ $$
     \end{align*}
 $$
 
-From the above we see that there is another map $\rho: V \to V^{**}$:
+As there is a way to associate every $v \in V$ with an $\bar{\omega} \in V^{**}$, this implies the existence of a map $\rho: V \to V^{**}$:
 
 $$
     \bar\omega(g) = g(\vec v) \implies \rho(\vec v) = \bar \omega
 $$
+
+The map $\rho$ is linear:
+
+$$  
+    \begin{align*}
+        \rho(a \vec{u} + b \vec{v})(g) = \bar{\sigma}(g) \\
+        = g(a \vec{u} + b \vec{v}) \\
+        = a g(\vec{u}) + b g(\vec{v}) \\
+        = a \rho(\vec{u})(g) + b \rho(\vec{v})(g) \\
+    \end{align*}
+$$
+
+Since this is true for arbitrary $g$ we have $\rho(a \vec{u} + b \vec{v}) = a \rho(\vec{u}) + b \rho(\vec{v})$, proving linearity.
+
+###  Basis
+The linear functionals $\rho(e_i)$ form a basis for $V^{**}$, where $e_i$ are the basis for $V$.
+
+#### Proof
+The proof proceeds as above where we must show the following:
+
+$$
+    \sum_{i=1}^n \bar{a}_i \rho(e_i) = 0 \quad \implies \quad \bar{a_i} = 0, \forall \bar{a_i} \in \mathbb{F}
+$$
+
+We can apply the linear functional above above to any basis vector $\epsilon_k \in V^*$:
+
+$$
+    \sum_{i=1}^n \bar{a}_i \rho(e_i)(\epsilon_k) = 0
+$$
+
+$$
+    \begin{align*}
+        \rho(e_i)(\epsilon_k) = \epsilon_k(e_i) = \delta_{ik} \\
+        \bar{a}_k \rho(e_k)(\epsilon_k) = 0 \\
+        
+        a_k 1  = 0 \\
+        a_k = 0
+    \end{align*}
+$$
+
+## Natural Isomorphism
+
+The map $\rho$ is onto as every $\bar{\omega} \in V^{**}$ is mapped to by some vector in $V$, as we can see by the linearity of $\rho$:
+
+$$
+    \bar{\omega} = \sum_{i=1}^n \bar{a}_i \rho(e_i) =  \sum_{i=1}^n \rho(\bar{a}_i e_i) = \rho(\sum_{i=1}^n \bar{a}_i e_i) \quad \bar{a}_i \in \mathbb{F}
+$$
+
+The map $\rho$ is also one-to-one because by the definition of a basis each vector $\sum_{i=1}^n \bar{a}_i e_i$ is unique. Therefore, the map $\rho$ is an isomorphism between $V$ and $V^{**}$. Note that the relation $\bar\omega(g) = g(\vec v)$ makes no reference to a basis so we call $V \cong V^{**}$ a _natural isomorphism_; there is no ambiguity in writing $\vec{v}(g) = g(\vec v)$.
