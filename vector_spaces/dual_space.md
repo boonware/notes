@@ -150,7 +150,7 @@ $$
     \end{align*}
 $$
 
-## Natural Isomorphism
+## Natural Isomorphism: 
 
 The map $\rho$ is onto as every $\bar{\omega} \in V^{\star \star}$ is mapped to by some vector in $V$, as we can see by the linearity of $\rho$:
 
