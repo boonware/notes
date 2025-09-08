@@ -1,0 +1,2800 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://pages.github.com/boonware/mathematics/statistics/z_test/">
+      
+      
+        <link rel="prev" href="../time_series_forecasting/">
+      
+      
+        <link rel="next" href="../../topology/intro/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Z test - Notes on Math, Physics and More</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#z-score" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Notes on Math, Physics and More" class="md-header__button md-logo" aria-label="Notes on Math, Physics and More" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Notes on Math, Physics and More
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Z test
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Notes on Math, Physics and More" class="md-nav__button md-logo" aria-label="Notes on Math, Physics and More" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Notes on Math, Physics and More
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Axiomatic set theory
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Axiomatic set theory
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../axiomatic_set_theory/axiomatic_systems_and_proofs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Axiomatic systems and proofs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../axiomatic_set_theory/logic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Logic
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../axiomatic_set_theory/zermelo_fraenkel_axioms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Zermelo-Fraenkel Axioms
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Complex analysis
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Complex analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../complex_analysis/complex_numbers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Complex numbers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Group theory
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Group theory
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../group_theory/group_actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Group actions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../group_theory/stone_goldbart_solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14. Groups and Group Representations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Linear operators
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Linear operators
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear_operators/basis_dependence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Basis dependence
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear_operators/representation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Representation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Machine learning
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Machine learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine_learning/feature_scaling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Feature scaling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine_learning/introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine_learning/linear_regression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linear regression
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine_learning/logistic_regression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Logistic regression
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Nlp
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Nlp
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nlp/intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Intro
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Quantum computation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Quantum computation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum_computation/bernstein_vazirani_algorithm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Bernstein-Vazirani Algorithm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum_computation/deutsch_josza_algorithm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deutsch-Josza Algorithm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum_computation/deutschs_algorithm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quantum Parallelism
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum_computation/teleportation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quantum Teleportation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Quantum mechanics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Quantum mechanics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum_mechanics/introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum_mechanics/schrodinger_equation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schrodinger equation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Real analysis
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Real analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../real_analysis/power_series/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Power series
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Set theory
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Set theory
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../set_theory/results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Results
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Special relativity
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Special relativity
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../special_relativity/galilean_relativity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Special Relativity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../special_relativity/spacetime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Special Relativity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Statistics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            Statistics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chi_squared_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chi squared test
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../continuous_probability_distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Continuous probability distributions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../discrete_probability_distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Discrete probability distributions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hypothesis_testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hypothesis testing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../maximum_likelihood_estimation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Maximum likelihood estimation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../power_transforms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Power transforms
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../t_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    T test
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series_forecasting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Time series forecasting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Z test
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Z test
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#z-score" class="md-nav__link">
+    <span class="md-ellipsis">
+      Z-Score
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#z-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Z-Test
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#z-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Z-Table
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Z-Table">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-read-a-z-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Read a Z-Table
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Criteria
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Test Criteria">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#left-tailed-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Left-Tailed Test
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#right-tailed-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Right-Tailed Test
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two-tailed-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Two-Tailed Test
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#appendix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Appendix
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Appendix">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#z-table-sample" class="md-nav__link">
+    <span class="md-ellipsis">
+      Z-Table Sample
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Topology
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            Topology
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Topology
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Vector spaces
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            Vector spaces
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vector_spaces/dual_space/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dual Spaces
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vector_spaces/hilbert_space/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hilbert space
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#z-score" class="md-nav__link">
+    <span class="md-ellipsis">
+      Z-Score
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#z-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Z-Test
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#z-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Z-Table
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Z-Table">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-read-a-z-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Read a Z-Table
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Criteria
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Test Criteria">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#left-tailed-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Left-Tailed Test
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#right-tailed-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Right-Tailed Test
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two-tailed-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Two-Tailed Test
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#appendix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Appendix
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Appendix">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#z-table-sample" class="md-nav__link">
+    <span class="md-ellipsis">
+      Z-Table Sample
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Z test</h1>
+
+<h2 id="z-score">Z-Score</h2>
+<p>The z-score or standard score tells by how many standard deviations a value differs from the mean. This is useful when comparing values from different populations, each having their own parameters <span class="arithmatex">\(\mu\)</span> and <span class="arithmatex">\(\sigma\)</span>, allowing the values to be compared in <em>standard units</em>.</p>
+<div class="arithmatex">\[
+    z = \frac {{x} - \mu} {\sigma}
+\]</div>
+<p>Clearly, the standard score follows the same distribution as the measured values <span class="arithmatex">\(x\)</span> as it is simply rescaled via subtraction and division.</p>
+<h2 id="z-test">Z-Test</h2>
+<p>When a hypothesis is about the <em>mean</em> of a distribution we can use a z-test. The z-statistic is defined as follows, where <span class="arithmatex">\(\mu_0\)</span> is the population mean under the null hypothesis and <span class="arithmatex">\(\sigma\)</span> is the known (i.e. actual, real) population variance:</p>
+<div class="arithmatex">\[
+    z = \frac {\overline{x} - \mu_0} { \sigma / \sqrt n }
+\]</div>
+<p>Fron the Central Limit Theorem we know that the sample mean <span class="arithmatex">\(\overline{x}\)</span> is approximately normally distributed, so the same distribution applies to the z-statistic. Note that the z-statistic in this case is essentially the same as above for the z-score; the difference between the measured value and the population mean is divided by the population standard deviation. For samples of size <span class="arithmatex">\(n\)</span>, the standard deviation of the distribution of <span class="arithmatex">\(\overline{x}\)</span> is <span class="arithmatex">\(\sigma / \sqrt{n}\)</span>.</p>
+<p>It should be recognised that the z-test has limited practical use as it is unrealistic to think that we'd find ourselves in the situation of knowing the population variance, but not the population mean. However, it serves as a useful introduction to hypothesis testing and more powerful methods.</p>
+<h2 id="z-table">Z-Table</h2>
+<p>A standard table for the z-statistic can be used for determining both critical values and p-values. Of course, software is used frequently instead of standard tables. 
+Cells within the table represent the area under the standard normal curve to the left of the z-score. A standard table shows values for the standard normal cumulative distribution function:</p>
+<div class="arithmatex">\[
+    \Phi(c) = p(z \le c) = \frac{1}{\sqrt{2\pi}}  \int\limits_{-\infty}^c  e^{-\frac{1}{2}z^2} dz
+\]</div>
+<p>We can find the probability for a value <em>greater than</em> the critical value using:
+$$
+    p(z \ge c) = 1 - \Phi(z)
+$$</p>
+<p>Since the standard normal distribution is symmetric about <span class="arithmatex">\(z = 0\)</span> this implies that</p>
+<div class="arithmatex">\[ p(z \ge c) = p(-z \le -c) \]</div>
+<h3 id="how-to-read-a-z-table">How to Read a Z-Table</h3>
+<p>The key to using a z-table is the following:
+* Row headings define the z-score to the tenth decimal place.
+* Column headings add the hundredth decimal place.</p>
+<p>For example, to find the critical value for a z-value of 1.27, find the row in the left-most column for 1.2 and then the column on that row for 0.07; the resulting critical value is 0.8980. A sample is show at the end of this page. To use the table, we first determine the</p>
+<h3 id="test-criteria">Test Criteria</h3>
+<p>The criteria for performing a test, for both the critical value and p-value approaches, are shown below, where <span class="arithmatex">\(c_\alpha\)</span> is the critical value for a significance level <span class="arithmatex">\(\alpha\)</span>.</p>
+<h4 id="left-tailed-test">Left-Tailed Test</h4>
+<div class="arithmatex">\[
+    z \le c_\alpha \quad \text{where} \quad z, c_\alpha \lt 0 \tag{critical value approach}
+\]</div>
+<div class="arithmatex">\[
+    p(z) \le \alpha \tag{p-value approach}
+\]</div>
+<h4 id="right-tailed-test">Right-Tailed Test</h4>
+<div class="arithmatex">\[
+    z \ge c_\alpha \quad \text{where} \quad z, c_\alpha \gt 0 \tag{critical value approach}
+\]</div>
+<div class="arithmatex">\[
+    p(z) \le \alpha \tag{p-value approach}
+\]</div>
+<h4 id="two-tailed-test">Two-Tailed Test</h4>
+<p>For a two-tailed test the criteria depend on whether our z-value is positive or negative:
+$$
+    z \ge c_\alpha \quad \text{where} \quad z, c_\alpha \gt 0 \tag{critical value approach}
+$$</p>
+<div class="arithmatex">\[
+    p(z) \le \frac{\alpha}{2}  \tag{p-value approach}
+\]</div>
+<p>Or:</p>
+<div class="arithmatex">\[
+    z \le c_\alpha \quad \text{where} \quad z, c_\alpha \lt 0 \tag{critical value approach}
+\]</div>
+<div class="arithmatex">\[
+    p(z) \le \frac{\alpha}{2}  \tag{p-value approach}
+\]</div>
+<h4 id="example">Example</h4>
+<p>It is claimed that the mean grade for students in a university is 75. We ask, is this claim true? A random sample of grades of size 100 gives a sample mean of 73. It is known that the population standard deviation is 15.</p>
+<ul>
+<li><span class="arithmatex">\(H_0\)</span> - the mean grade is 75.</li>
+<li><span class="arithmatex">\(H_A\)</span> - the mean grade is not 75.</li>
+</ul>
+<p>Calculate the z-statistic:</p>
+<div class="arithmatex">\[
+z = \frac{73 - 75}{\frac{15}{\sqrt{100}}} = -1.33
+\]</div>
+<p>For our test we choose a significance level of 5%. Using the critical value approach, we will look up the value using a standard z-table (of course, you could use software). Since <span class="arithmatex">\(H_A\)</span> is about <span class="arithmatex">\(\mu_A \ne \mu_0\)</span> being different, which includes both <span class="arithmatex">\(\mu_A \lt \mu_0\)</span> and <span class="arithmatex">\(\mu_A \gt \mu_0\)</span>, we have a two-tailed test. </p>
+<p>What is the critical value for a significance level of 0.05? Since we have a two-sided test the probability (significance level) is split into 0.025 for each tail of the distribution. Find the cell in the table for the probability 0.975 (i.e. <span class="arithmatex">\(1 - 0.025\)</span>); this is row 1.9 and column 0.06. Therefore the critical value for <span class="arithmatex">\(\alpha = 0.05\)</span> in a two-sided test is <span class="arithmatex">\(\pm1.96\)</span>. We perform the following check:</p>
+<div class="arithmatex">\[
+-1.33 \le -1.96 \implies \text{false}
+\]</div>
+<p>Therefore we reject <span class="arithmatex">\(H_A\)</span> and accept <span class="arithmatex">\(H_0\)</span>.</p>
+<p>We can repeat the same test but this time use the p-value approach. Looking up the p-value from the z-table: <span class="arithmatex">\(p(z \le 1.33) =0.9082\)</span>. Therefore <span class="arithmatex">\(p(z \ge 1.33) = 1 - p(z \le 1.33) = 1 - 0.9082 = 0.092\)</span>. Since the standard normal distribution is symmetric about <span class="arithmatex">\(z = 0\)</span> we know that <span class="arithmatex">\(p(z \ge 1.33) = p(-z \le -1.33)\)</span>. Therefore, as $ 0.092 \gt 0.05$ we reject <span class="arithmatex">\(H_A\)</span> and accept <span class="arithmatex">\(H_0\)</span>.</p>
+<h3 id="appendix">Appendix</h3>
+<h4 id="z-table-sample">Z-Table Sample</h4>
+<table class="wikitable">
+<tbody><tr>
+<th><i>z</i></th>
+<th>+ 0.00</th>
+<th>+ 0.01</th>
+<th>+ 0.02</th>
+<th>+ 0.03</th>
+<th>+ 0.04</th>
+<th>+ 0.05</th>
+<th>+ 0.06</th>
+<th>+ 0.07</th>
+<th>+ 0.08</th>
+<th>+ 0.09
+</th></tr>
+<tr>
+<th>0.0
+</th>
+<td>0.50000</td>
+<td>0.50399</td>
+<td>0.50798</td>
+<td>0.51197</td>
+<td>0.51595</td>
+<td>0.51994</td>
+<td>0.52392</td>
+<td>0.52790</td>
+<td>0.53188</td>
+<td>0.53586
+</td></tr>
+<tr>
+<th>0.1
+</th>
+<td>0.53983</td>
+<td>0.54380</td>
+<td>0.54776</td>
+<td>0.55172</td>
+<td>0.55567</td>
+<td>0.55962</td>
+<td>0.56360</td>
+<td>0.56749</td>
+<td>0.57142</td>
+<td>0.57535
+</td></tr>
+<tr>
+<th>0.2
+</th>
+<td>0.57926</td>
+<td>0.58317</td>
+<td>0.58706</td>
+<td>0.59095</td>
+<td>0.59483</td>
+<td>0.59871</td>
+<td>0.60257</td>
+<td>0.60642</td>
+<td>0.61026</td>
+<td>0.61409
+</td></tr>
+<tr>
+<th>0.3
+</th>
+<td>0.61791</td>
+<td>0.62172</td>
+<td>0.62552</td>
+<td>0.62930</td>
+<td>0.63307</td>
+<td>0.63683</td>
+<td>0.64058</td>
+<td>0.64431</td>
+<td>0.64803</td>
+<td>0.65173
+</td></tr>
+<tr>
+<th>0.4
+</th>
+<td>0.65542</td>
+<td>0.65910</td>
+<td>0.66276</td>
+<td>0.66640</td>
+<td>0.67003</td>
+<td>0.67364</td>
+<td>0.67724</td>
+<td>0.68082</td>
+<td>0.68439</td>
+<td>0.68793
+</td></tr>
+<tr>
+<td colspan="1" style="padding:0;">
+</td></tr>
+<tr>
+<th>0.5
+</th>
+<td>0.69146</td>
+<td>0.69497</td>
+<td>0.69847</td>
+<td>0.70194</td>
+<td>0.70540</td>
+<td>0.70884</td>
+<td>0.71226</td>
+<td>0.71566</td>
+<td>0.71904</td>
+<td>0.72240
+</td></tr>
+<tr>
+<th>0.6
+</th>
+<td>0.72575</td>
+<td>0.72907</td>
+<td>0.73237</td>
+<td>0.73565</td>
+<td>0.73891</td>
+<td>0.74215</td>
+<td>0.74537</td>
+<td>0.74857</td>
+<td>0.75175</td>
+<td>0.75490
+</td></tr>
+<tr>
+<th>0.7
+</th>
+<td>0.75804</td>
+<td>0.76115</td>
+<td>0.76424</td>
+<td>0.76730</td>
+<td>0.77035</td>
+<td>0.77337</td>
+<td>0.77637</td>
+<td>0.77935</td>
+<td>0.78230</td>
+<td>0.78524
+</td></tr>
+<tr>
+<th>0.8
+</th>
+<td>0.78814</td>
+<td>0.79103</td>
+<td>0.79389</td>
+<td>0.79673</td>
+<td>0.79955</td>
+<td>0.80234</td>
+<td>0.80511</td>
+<td>0.80785</td>
+<td>0.81057</td>
+<td>0.81327
+</td></tr>
+<tr>
+<th>0.9
+</th>
+<td>0.81594</td>
+<td>0.81859</td>
+<td>0.82121</td>
+<td>0.82381</td>
+<td>0.82639</td>
+<td>0.82894</td>
+<td>0.83147</td>
+<td>0.83398</td>
+<td>0.83646</td>
+<td>0.83891
+</td></tr>
+<tr>
+<td colspan="1" style="padding:0;">
+</td></tr>
+<tr>
+<th>1.0
+</th>
+<td>0.84134</td>
+<td>0.84375</td>
+<td>0.84614</td>
+<td>0.84849</td>
+<td>0.85083</td>
+<td>0.85314</td>
+<td>0.85543</td>
+<td>0.85769</td>
+<td>0.85993</td>
+<td>0.86214
+</td></tr>
+<tr>
+<th>1.1
+</th>
+<td>0.86433</td>
+<td>0.86650</td>
+<td>0.86864</td>
+<td>0.87076</td>
+<td>0.87286</td>
+<td>0.87493</td>
+<td>0.87698</td>
+<td>0.87900</td>
+<td>0.88100</td>
+<td>0.88298
+</td></tr>
+<tr>
+<th>1.2
+</th>
+<td>0.88493</td>
+<td>0.88686</td>
+<td>0.88877</td>
+<td>0.89065</td>
+<td>0.89251</td>
+<td>0.89435</td>
+<td>0.89617</td>
+<td>0.89796</td>
+<td>0.89973</td>
+<td>0.90147
+</td></tr>
+<tr>
+<th>1.3
+</th>
+<td>0.90320</td>
+<td>0.90490</td>
+<td>0.90658</td>
+<td>0.90824</td>
+<td>0.90988</td>
+<td>0.91149</td>
+<td>0.91308</td>
+<td>0.91466</td>
+<td>0.91621</td>
+<td>0.91774
+</td></tr>
+<tr>
+<th>1.4
+</th>
+<td>0.91924</td>
+<td>0.92073</td>
+<td>0.92220</td>
+<td>0.92364</td>
+<td>0.92507</td>
+<td>0.92647</td>
+<td>0.92785</td>
+<td>0.92922</td>
+<td>0.93056</td>
+<td>0.93189
+</td></tr>
+<tr>
+<td colspan="1" style="padding:0;">
+</td></tr>
+<tr>
+<th>1.5
+</th>
+<td>0.93319</td>
+<td>0.93448</td>
+<td>0.93574</td>
+<td>0.93699</td>
+<td>0.93822</td>
+<td>0.93943</td>
+<td>0.94062</td>
+<td>0.94179</td>
+<td>0.94295</td>
+<td>0.94408
+</td></tr>
+<tr>
+<th>1.6
+</th>
+<td>0.94520</td>
+<td>0.94630</td>
+<td>0.94738</td>
+<td>0.94845</td>
+<td>0.94950</td>
+<td>0.95053</td>
+<td>0.95154</td>
+<td>0.95254</td>
+<td>0.95352</td>
+<td>0.95449
+</td></tr>
+<tr>
+<th>1.7
+</th>
+<td>0.95543</td>
+<td>0.95637</td>
+<td>0.95728</td>
+<td>0.95818</td>
+<td>0.95907</td>
+<td>0.95994</td>
+<td>0.96080</td>
+<td>0.96164</td>
+<td>0.96246</td>
+<td>0.96327
+</td></tr>
+<tr>
+<th>1.8
+</th>
+<td>0.96407</td>
+<td>0.96485</td>
+<td>0.96562</td>
+<td>0.96638</td>
+<td>0.96712</td>
+<td>0.96784</td>
+<td>0.96856</td>
+<td>0.96926</td>
+<td>0.96995</td>
+<td>0.97062
+</td></tr>
+<tr>
+<th>1.9
+</th>
+<td>0.97128</td>
+<td>0.97193</td>
+<td>0.97257</td>
+<td>0.97320</td>
+<td>0.97381</td>
+<td>0.97441</td>
+<td>0.97500</td>
+<td>0.97558</td>
+<td>0.97615</td>
+<td>0.97670
+</td></tr>
+<tr>
+<td colspan="1" style="padding:0;">
+</td></tr>
+<tr>
+<th>2.0
+</th>
+<td>0.97725</td>
+<td>0.97778</td>
+<td>0.97831</td>
+<td>0.97882</td>
+<td>0.97932</td>
+<td>0.97982</td>
+<td>0.98030</td>
+<td>0.98077</td>
+<td>0.98124</td>
+<td>0.98169
+</td></tr>
+<tr>
+<th>2.1
+</th>
+<td>0.98214</td>
+<td>0.98257</td>
+<td>0.98300</td>
+<td>0.98341</td>
+<td>0.98382</td>
+<td>0.98422</td>
+<td>0.98461</td>
+<td>0.98500</td>
+<td>0.98537</td>
+<td>0.98574
+</td></tr>
+<tr>
+<th>2.2
+</th>
+<td>0.98610</td>
+<td>0.98645</td>
+<td>0.98679</td>
+<td>0.98713</td>
+<td>0.98745</td>
+<td>0.98778</td>
+<td>0.98809</td>
+<td>0.98840</td>
+<td>0.98870</td>
+<td>0.98899
+</td></tr>
+<tr>
+<th>2.3
+</th>
+<td>0.98928</td>
+<td>0.98956</td>
+<td>0.98983</td>
+<td>0.99010</td>
+<td>0.99036</td>
+<td>0.99061</td>
+<td>0.99086</td>
+<td>0.99111</td>
+<td>0.99134</td>
+<td>0.99158
+</td></tr>
+<tr>
+<th>2.4
+</th>
+<td>0.99180</td>
+<td>0.99202</td>
+<td>0.99224</td>
+<td>0.99245</td>
+<td>0.99266</td>
+<td>0.99286</td>
+<td>0.99305</td>
+<td>0.99324</td>
+<td>0.99343</td>
+<td>0.99361
+</td></tr>
+<tr>
+<td colspan="1" style="padding:0;">
+</td></tr>
+<tr>
+<th>2.5
+</th>
+<td>0.99379</td>
+<td>0.99396</td>
+<td>0.99413</td>
+<td>0.99430</td>
+<td>0.99446</td>
+<td>0.99461</td>
+<td>0.99477</td>
+<td>0.99492</td>
+<td>0.99506</td>
+<td>0.99520
+</td></tr>
+<tr>
+<th>2.6
+</th>
+<td>0.99534</td>
+<td>0.99547</td>
+<td>0.99560</td>
+<td>0.99573</td>
+<td>0.99585</td>
+<td>0.99598</td>
+<td>0.99609</td>
+<td>0.99621</td>
+<td>0.99632</td>
+<td>0.99643
+</td></tr>
+<tr>
+<th>2.7
+</th>
+<td>0.99653</td>
+<td>0.99664</td>
+<td>0.99674</td>
+<td>0.99683</td>
+<td>0.99693</td>
+<td>0.99702</td>
+<td>0.99711</td>
+<td>0.99720</td>
+<td>0.99728</td>
+<td>0.99736
+</td></tr>
+<tr>
+<th>2.8
+</th>
+<td>0.99744</td>
+<td>0.99752</td>
+<td>0.99760</td>
+<td>0.99767</td>
+<td>0.99774</td>
+<td>0.99781</td>
+<td>0.99788</td>
+<td>0.99795</td>
+<td>0.99801</td>
+<td>0.99807
+</td></tr>
+<tr>
+<th>2.9
+</th>
+<td>0.99813</td>
+<td>0.99819</td>
+<td>0.99825</td>
+<td>0.99831</td>
+<td>0.99836</td>
+<td>0.99841</td>
+<td>0.99846</td>
+<td>0.99851</td>
+<td>0.99856</td>
+<td>0.99861
+</td></tr>
+<tr>
+<td colspan="1" style="padding:0;">
+</td></tr>
+<tr>
+<th>3.0
+</th>
+<td>0.99865</td>
+<td>0.99869</td>
+<td>0.99874</td>
+<td>0.99878</td>
+<td>0.99882</td>
+<td>0.99886</td>
+<td>0.99889</td>
+<td>0.99893</td>
+<td>0.99896</td>
+<td>0.99900
+</td></tr>
+<tr>
+<th>3.1
+</th>
+<td>0.99903</td>
+<td>0.99906</td>
+<td>0.99910</td>
+<td>0.99913</td>
+<td>0.99916</td>
+<td>0.99918</td>
+<td>0.99921</td>
+<td>0.99924</td>
+<td>0.99926</td>
+<td>0.99929
+</td></tr>
+<tr>
+<th>3.2
+</th>
+<td>0.99931</td>
+<td>0.99934</td>
+<td>0.99936</td>
+<td>0.99938</td>
+<td>0.99940</td>
+<td>0.99942</td>
+<td>0.99944</td>
+<td>0.99946</td>
+<td>0.99948</td>
+<td>0.99950
+</td></tr>
+<tr>
+<th>3.3
+</th>
+<td>0.99952</td>
+<td>0.99953</td>
+<td>0.99955</td>
+<td>0.99957</td>
+<td>0.99958</td>
+<td>0.99960</td>
+<td>0.99961</td>
+<td>0.99962</td>
+<td>0.99964</td>
+<td>0.99965
+</td></tr>
+<tr>
+<th>3.4
+</th>
+<td>0.99966</td>
+<td>0.99968</td>
+<td>0.99969</td>
+<td>0.99970</td>
+<td>0.99971</td>
+<td>0.99972</td>
+<td>0.99973</td>
+<td>0.99974</td>
+<td>0.99975</td>
+<td>0.99976
+</td></tr>
+<tr>
+<td colspan="1" style="padding:0;">
+</td></tr>
+<tr>
+<th>3.5
+</th>
+<td>0.99977</td>
+<td>0.99978</td>
+<td>0.99978</td>
+<td>0.99979</td>
+<td>0.99980</td>
+<td>0.99981</td>
+<td>0.99981</td>
+<td>0.99982</td>
+<td>0.99983</td>
+<td>0.99983
+</td></tr>
+<tr>
+<th>3.6
+</th>
+<td>0.99984</td>
+<td>0.99985</td>
+<td>0.99985</td>
+<td>0.99986</td>
+<td>0.99986</td>
+<td>0.99987</td>
+<td>0.99987</td>
+<td>0.99988</td>
+<td>0.99988</td>
+<td>0.99989
+</td></tr>
+<tr>
+<th>3.7
+</th>
+<td>0.99989</td>
+<td>0.99990</td>
+<td>0.99990</td>
+<td>0.99990</td>
+<td>0.99991</td>
+<td>0.99991</td>
+<td>0.99992</td>
+<td>0.99992</td>
+<td>0.99992</td>
+<td>0.99992
+</td></tr>
+<tr>
+<th>3.8
+</th>
+<td>0.99993</td>
+<td>0.99993</td>
+<td>0.99993</td>
+<td>0.99994</td>
+<td>0.99994</td>
+<td>0.99994</td>
+<td>0.99994</td>
+<td>0.99995</td>
+<td>0.99995</td>
+<td>0.99995
+</td></tr>
+<tr>
+<th>3.9
+</th>
+<td>0.99995</td>
+<td>0.99995</td>
+<td>0.99996</td>
+<td>0.99996</td>
+<td>0.99996</td>
+<td>0.99996</td>
+<td>0.99996</td>
+<td>0.99996</td>
+<td>0.99997</td>
+<td>0.99997
+</td></tr>
+<tr>
+<td colspan="1" style="padding:0;">
+</td></tr>
+<tr>
+<th>4.0
+</th>
+<td>0.99997</td>
+<td>0.99997</td>
+<td>0.99997</td>
+<td>0.99997</td>
+<td>0.99997</td>
+<td>0.99997</td>
+<td>0.99998</td>
+<td>0.99998</td>
+<td>0.99998</td>
+<td>0.99998
+</td></tr>
+<tr>
+<th><i>z</i></th>
+<th>+0.00</th>
+<th>+0.01</th>
+<th>+0.02</th>
+<th>+0.03</th>
+<th>+0.04</th>
+<th>+0.05</th>
+<th>+0.06</th>
+<th>+0.07</th>
+<th>+0.08</th>
+<th>+0.09
+</th></tr></tbody></table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2424 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://pages.github.com/boonware/mathematics/statistics/discrete_probability_distributions/">
+      
+      
+        <link rel="prev" href="../continuous_probability_distributions/">
+      
+      
+        <link rel="next" href="../hypothesis_testing/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Discrete probability distributions - Notes on Math, Physics and More</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#discrete-probability-distributions" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Notes on Math, Physics and More" class="md-header__button md-logo" aria-label="Notes on Math, Physics and More" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Notes on Math, Physics and More
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Discrete probability distributions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Notes on Math, Physics and More" class="md-nav__button md-logo" aria-label="Notes on Math, Physics and More" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Notes on Math, Physics and More
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Axiomatic set theory
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Axiomatic set theory
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../axiomatic_set_theory/axiomatic_systems_and_proofs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Axiomatic systems and proofs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../axiomatic_set_theory/logic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Logic
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../axiomatic_set_theory/zermelo_fraenkel_axioms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Zermelo-Fraenkel Axioms
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Complex analysis
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Complex analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../complex_analysis/complex_numbers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Complex numbers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Group theory
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Group theory
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../group_theory/group_actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Group actions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../group_theory/stone_goldbart_solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14. Groups and Group Representations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Linear operators
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Linear operators
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear_operators/basis_dependence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Basis dependence
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear_operators/representation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Representation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Machine learning
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Machine learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine_learning/feature_scaling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Feature scaling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine_learning/introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine_learning/linear_regression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linear regression
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine_learning/logistic_regression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Logistic regression
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Nlp
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Nlp
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nlp/intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Intro
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Quantum computation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Quantum computation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum_computation/bernstein_vazirani_algorithm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Bernstein-Vazirani Algorithm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum_computation/deutsch_josza_algorithm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deutsch-Josza Algorithm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum_computation/deutschs_algorithm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quantum Parallelism
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum_computation/teleportation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quantum Teleportation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Quantum mechanics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Quantum mechanics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum_mechanics/introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum_mechanics/schrodinger_equation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schrodinger equation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Real analysis
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Real analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../real_analysis/power_series/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Power series
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Set theory
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Set theory
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../set_theory/results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Results
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Special relativity
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Special relativity
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../special_relativity/galilean_relativity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Special Relativity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../special_relativity/spacetime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Special Relativity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Statistics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            Statistics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chi_squared_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chi squared test
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../continuous_probability_distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Continuous probability distributions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Discrete probability distributions
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Discrete probability distributions
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#discrete-probability-distributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Discrete Probability Distributions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Discrete Probability Distributions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#expected-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      Expected Value
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Expected Value">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linearity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linearity
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#law-of-large-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Law of Large Numbers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#derivation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Derivation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-the-squared-difference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why the Squared Difference?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standard-deviation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Deviation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#population-vs-sample-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      Population vs. Sample Values
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample-mean" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample Mean
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sample Mean">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proof" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proof
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample-variance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample Variance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sample Variance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bessels-correction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bessel's Correction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bessel&#39;s Correction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proof_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proof
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cumulative-distribution-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cumulative Distribution Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#binomial-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binomial Distribution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Binomial Distribution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definition
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hypothesis_testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hypothesis testing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../maximum_likelihood_estimation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Maximum likelihood estimation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../power_transforms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Power transforms
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../t_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    T test
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series_forecasting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Time series forecasting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../z_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Z test
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Topology
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            Topology
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Topology
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Vector spaces
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            Vector spaces
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vector_spaces/dual_space/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dual Spaces
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vector_spaces/hilbert_space/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hilbert space
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#discrete-probability-distributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Discrete Probability Distributions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Discrete Probability Distributions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#expected-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      Expected Value
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Expected Value">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linearity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linearity
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#law-of-large-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Law of Large Numbers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#derivation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Derivation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-the-squared-difference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why the Squared Difference?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standard-deviation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Deviation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#population-vs-sample-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      Population vs. Sample Values
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample-mean" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample Mean
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sample Mean">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proof" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proof
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample-variance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample Variance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sample Variance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bessels-correction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bessel's Correction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bessel&#39;s Correction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proof_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proof
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cumulative-distribution-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cumulative Distribution Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#binomial-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binomial Distribution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Binomial Distribution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definition
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Discrete probability distributions</h1>
+
+<h2 id="discrete-probability-distributions">Discrete Probability Distributions</h2>
+<p>We begin our study of statistics with the theory of <em>discrete random variables</em>. We denote the set of all possible values that the random variable can take as <span class="arithmatex">\(X\)</span>. Specific values of the random variable are denoted in lower case <span class="arithmatex">\(x\)</span>. A random variable obeys some probability distribution <span class="arithmatex">\(P(X): \mathbb{R} \mapsto \mathbb{R}\)</span> such that we can obtain the probability of a specific value of <span class="arithmatex">\(X\)</span> occurring. The probability distribution obeys the <em>normalization condition</em>:</p>
+<div class="arithmatex">\[ \sum_{i=1}^{n} P(x_i) = 1 \]</div>
+<h3 id="expected-value">Expected Value</h3>
+<p>For a discrete probability distribution <span class="arithmatex">\(X\)</span> with <span class="arithmatex">\(n\)</span> possible values, where <span class="arithmatex">\(x_i\)</span> is the i-th possible value and <span class="arithmatex">\(p_i\)</span> is the probability of that value, the expected value (or expectation) is given by</p>
+<div class="arithmatex">\[ \mu_X = E[X] = \sum_{i=1}^{n} x_i P(x_i) \]</div>
+<p>Where the distribution X is clear the symbol <span class="arithmatex">\(\mu\)</span> may also be used. The expectated value is a weighted average. Note the usage of square brackets here to denote that this is a <em>functional</em>, i.e. a function of other functions (probability distributions); this notation is not consistent. The notation <span class="arithmatex">\(\overline{X}\)</span> is also used, and <span class="arithmatex">\(\braket{X}\)</span> is common in physics.</p>
+<h4 id="linearity">Linearity</h4>
+<p>The expected value is linear, no matter if the distributions are dependent or independent:</p>
+<div class="arithmatex">\[ E[X + Y] = E[X] + E[Y] \]</div>
+<h3 id="law-of-large-numbers">Law of Large Numbers</h3>
+<p>When <span class="arithmatex">\(n\)</span> samples are taken from a probability distribution <span class="arithmatex">\(X\)</span> their average value approaches the expected value as the number of samples increases. This is an intuitive result.</p>
+<div class="arithmatex">\[ \lim_{n \to \infty } \sum_{i=1}^{n} \frac{X_i}{n} = E[X] \]</div>
+<h3 id="variance">Variance</h3>
+<p>The variance of a discrete random variable, written <span class="arithmatex">\(Var[X]\)</span> or often simply <span class="arithmatex">\(\sigma^2\)</span>, is the expected value of the square of the difference between the variable and its expected value:</p>
+<div class="arithmatex">\[ \sigma^2 = Var[X] = E[(X - E[X])^2] \]</div>
+<p>The variance quantifies the dispersion of samples from a probability distribution, that is, the weighted average (squared) spread of samples from the expected value. It can also be expressed as </p>
+<div class="arithmatex">\[ Var[X] = E[X^2] - E[X]^2 \]</div>
+<h5 id="derivation">Derivation</h5>
+<div class="arithmatex">\[ 
+\begin{align*}
+E[(X - E[X])^2] &amp;= \sum_{i=1}^{n} (x_i - \sum_{k=1}^{n} x_k p_k )^2 p_i \\
+                &amp;= \sum_{i=1}^{n} (x_i^2 - 2 x_i \sum_{k=1}^{n} x_k p_k + (\sum_{k=1}^{n} x_k p_k)^2) p_i \\
+                &amp;= \sum_{i=1}^{n} x_i^2 p_i- 2 \sum_{i=1}^{n} x_i p_i \sum_{k=1}^{n} x_k p_k + \sum_{i=1}^{n} p_i(\sum_{k=1}^{n} x_k p_k)^2 \\
+                &amp;= E[X^2]- 2 E[X]^2 + (1)E[X^2] \\
+                &amp;= E[X^2]- E[X]^2 \\
+\end{align*}
+\]</div>
+<h3 id="_1"></h3>
+<h4 id="why-the-squared-difference">Why the Squared Difference?</h4>
+<p>The squared difference ensures that the value for all samples is always positive or zero, but the absolute value $ |X - E[X]| $ could also provide this property. There are a number of reasons why the squared difference is used:</p>
+<ul>
+<li>The squared difference is continuously differentiable (it exists and is itself continuous), whereas the absolute value's derivate is not continuous, it is undefined at $ x = 0 $ . This is useful when trying to optimize the variance.</li>
+<li>If $ X_n $ are independent discrete random variables then the following is true for the squared difference, unlike the absolute value:</li>
+</ul>
+<div class="arithmatex">\[
+Var[X_1 + ... + X_n] = Var[X_1] + ... + Var[X_n]
+\]</div>
+<h3 id="standard-deviation">Standard Deviation</h3>
+<p>The square root of the variance is called the <strong>standard deviation</strong>:</p>
+<div class="arithmatex">\[
+ \sigma = SD[X] = \sqrt{Var[X]}
+\]</div>
+<p>The standard deviation is expressed in the same units as the underlying variable, whereas the variance is expressed in squared units. Which is used depends on the context, however, sometimes one is mathematically more useful. For example, the expression above for <span class="arithmatex">\(Var[X_1 + ... + X_n]\)</span> does not apply to the standard deviation:</p>
+<div class="arithmatex">\[
+ SD[X_1 + ... X_n] \neq SD[X_1] + ... + SD[X_n]
+\]</div>
+<h3 id="population-vs-sample-values">Population vs. Sample Values</h3>
+<p>Care must be taken when referring to statistics about an entire population (often unknown) versus samples taken from that population. More correctly, the values that refer to the entire population are  <em>parameters</em> of the distribution. We can estimate the values of population parameters using sampling. A sample statistic is <em>unbiased</em> if the expectation value equals the population parameter, otherwise it is known as a <em>biased</em> statistic.</p>
+<h3 id="sample-mean">Sample Mean</h3>
+<p>The sample mean provides an estimate of the population mean, and is an arithmetic average over the sample values:</p>
+<div class="arithmatex">\[
+\overline{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
+\]</div>
+<p>The expected value of the sample mean is the population mean:</p>
+<div class="arithmatex">\[
+E[\overline{x}] = \mu 
+\]</div>
+<p>The variance of the sample mean approaches zero as the sample sizes increases, since the sample mean itself approaches the population mean:</p>
+<div class="arithmatex">\[
+Var[\overline{x}] = \frac{\sigma^2}{n}
+\]</div>
+<h4 id="proof">Proof</h4>
+<div class="arithmatex">\[
+\begin{align*}
+Var[\overline{x}] &amp;= Var \left[ \frac{1}{n} \sum_{i=1}^{n} x_i \right] \text{xc} \\
+                  &amp;= \frac{1}{n^2} \sum_{i=1}^{n} Var[x_i]   \\
+\end{align*}
+\]</div>
+<p>TODO - complete</p>
+<h3 id="sample-variance">Sample Variance</h3>
+<div class="arithmatex">\[
+s^2 =  \frac{1}{n-1}\sum_{i=1}^{n} (x_i - \overline{x})^2
+\]</div>
+<p>The expected value of the sample variance is the population variance:</p>
+<div class="arithmatex">\[
+E[s^2] = \sigma^2 
+\]</div>
+<h4 id="bessels-correction">Bessel's Correction</h4>
+<p>The factor of <span class="arithmatex">\(\frac{1}{n-1}\)</span> in the sample variance is known as <em>Bessel's Correction</em>. Intuitively it may appear that an arithmetic average over the values should be taken, similar to the sample mean, however, this produces an underestimation, i.e. a biased statistic. </p>
+<h5 id="proof_1">Proof</h5>
+<p>First, let us show that the following produces a biased statistic:</p>
+<div class="arithmatex">\[
+s_{b}^2 =  \frac{1}{n}\sum_{i=1}^{n} (x_i - \overline{x})^2
+\]</div>
+<p>Manipulate the expected value:</p>
+<div class="arithmatex">\[
+\begin{align*}
+    E[s_{b}^2] &amp;= E \left[ \frac{1}{n}\sum_{i=1}^{n} (x_i^2 - 2x_i\overline{x} + \overline{x}^2) \right] \\
+            &amp;= E \left[ \frac{1}{n}\sum_{i=1}^{n} x_i^2 - 2\overline{x} \frac{1}{n}\sum_{i=1}^{n} x_i + \frac{1}{n}\sum_{i=1}^{n}\overline{x}^2 \right] \\
+            &amp;= E \left[ \frac{1}{n}\sum_{i=1}^{n} x_i^2 - 2\overline{x}^2 + \overline{x}^2 \right] \\
+            &amp;= E \left[ \frac{1}{n}\sum_{i=1}^{n} x_i^2 \right] - E[\overline{x}^2] \\
+            &amp;= \frac{1}{n}\sum_{i=1}^{n} E[x_i^2] - E[\overline{x}^2] \\
+            &amp;= \frac{1}{n} (n E[x_i^2] ) - E[\overline{x}^2] \\
+            &amp;= E[x_i^2] - E[\overline{x}^2] \\
+\end{align*}
+\]</div>
+<p>The second last line holds since <span class="arithmatex">\(x_i\)</span> represents an observation, and all observations (it is assumed) are i.i.d. Therefore the expected value of any obversation is the same, i.e. <span class="arithmatex">\(E[x_i] = \mu\)</span>.</p>
+<p>From the definition of variance:</p>
+<div class="arithmatex">\[
+\begin{align*}
+    E[x_i^2] &amp;= Var[x_i] + E[x_i]^2 \\
+            &amp;= \sigma^2 + \mu^2
+\end{align*}
+\]</div>
+<p>We also know that <span class="arithmatex">\(Var[\overline{x}] = \frac{\sigma^2}{n}\)</span>, therefore:</p>
+<div class="arithmatex">\[
+\begin{align*}
+    E[\overline{x}^2] &amp;= Var[\overline{x}] + E[\overline{x}]^2 \\
+                      &amp;= \frac{\sigma^2}{n} + \mu^2
+\end{align*}
+\]</div>
+<p>Bringing the above together:</p>
+<div class="arithmatex">\[
+\begin{align*}
+    E[s_{b}^2] &amp;= \sigma^2 + \mu^2 - \frac{\sigma^2}{n} - \mu^2 \\
+                &amp;= \left( 1 - \frac{1}{n} \right) \sigma^2
+\end{align*}
+\]</div>
+<p>The expected value of the sample variance <span class="arithmatex">\(s_b^2\)</span> is biased, that is, it is not equal to the population variance and must be corrected by the inverse factor on the right-hand side to obtain a non-biased result:</p>
+<div class="arithmatex">\[
+\begin{align*}
+    \sigma^2 &amp;= \frac{n}{n-1}E[s_{b}^2]\\
+             &amp;= \left( \frac{n}{n-1} \right) \frac{1}{n}\sum_{i=1}^{n} (x_i - \overline{x})^2 \\
+             &amp;= \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \overline{x})^2
+\end{align*}
+\]</div>
+<h3 id="cumulative-distribution-function">Cumulative Distribution Function</h3>
+<p>It is useful to define the cumulative distribution function, written <span class="arithmatex">\(CDF\)</span>, which represents the probability of a random variable being less than or equal to some value:</p>
+<div class="arithmatex">\[
+    CDF(x) = P(X \le x) = \sum_{X \le x} P(x) 
+\]</div>
+<h2 id="binomial-distribution">Binomial Distribution</h2>
+<p>TODO - add diagram</p>
+<h3 id="definition">Definition</h3>
+<p>Consider a random experiment where each outcome can have one of two possible values: success with probability <span class="arithmatex">\(p\)</span> or failure with probability <span class="arithmatex">\(1-p\)</span>. These events or trials are known as <strong>Bernoulli Trials</strong>. Each trial is independent of the others as the probability remains the same. An example of a Bernoulli Trial is tossing a coin to check for heads vs. tails.</p>
+<p>The discrete probability distribution of obtaining exactly <span class="arithmatex">\(k\)</span> successes from <span class="arithmatex">\(n\)</span> Bernoulli Trials is given by the <strong>binomial distribution</strong>:</p>
+<div class="arithmatex">\[ P(k, n, p) = {n \choose k} p^k (1-p)^{n-k} \]</div>
+<p>where the <em>binomial coefficient</em> (often read as "<span class="arithmatex">\(n\)</span> choose <span class="arithmatex">\(k\)</span>") is</p>
+<div class="arithmatex">\[ {n \choose k} = \frac{n!}{k!(n-k)!} \]</div>
+<p>The binomial distribution is a <em>probability mass function</em> as it gives the probability that a discrete random variable is exactly equal to some value.</p>
+<p>For <span class="arithmatex">\(n\)</span> trials each with probability <span class="arithmatex">\(p\)</span> the mean is clearly given by</p>
+<div class="arithmatex">\[\mu = np\]</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

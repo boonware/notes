@@ -1,0 +1,2179 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://pages.github.com/boonware/mathematics/vector_spaces/dual_space/">
+      
+      
+        <link rel="prev" href="../../topology/intro/">
+      
+      
+        <link rel="next" href="../hilbert_space/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Dual Spaces - Notes on Math, Physics and More</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#dual-spaces" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Notes on Math, Physics and More" class="md-header__button md-logo" aria-label="Notes on Math, Physics and More" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Notes on Math, Physics and More
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Dual Spaces
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Notes on Math, Physics and More" class="md-nav__button md-logo" aria-label="Notes on Math, Physics and More" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Notes on Math, Physics and More
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Axiomatic set theory
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Axiomatic set theory
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../axiomatic_set_theory/axiomatic_systems_and_proofs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Axiomatic systems and proofs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../axiomatic_set_theory/logic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Logic
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../axiomatic_set_theory/zermelo_fraenkel_axioms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Zermelo-Fraenkel Axioms
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Complex analysis
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Complex analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../complex_analysis/complex_numbers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Complex numbers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Group theory
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Group theory
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../group_theory/group_actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Group actions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../group_theory/stone_goldbart_solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14. Groups and Group Representations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Linear operators
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Linear operators
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear_operators/basis_dependence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Basis dependence
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear_operators/representation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Representation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Machine learning
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Machine learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine_learning/feature_scaling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Feature scaling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine_learning/introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine_learning/linear_regression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linear regression
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine_learning/logistic_regression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Logistic regression
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Nlp
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Nlp
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nlp/intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Intro
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Quantum computation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Quantum computation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum_computation/bernstein_vazirani_algorithm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Bernstein-Vazirani Algorithm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum_computation/deutsch_josza_algorithm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deutsch-Josza Algorithm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum_computation/deutschs_algorithm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quantum Parallelism
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum_computation/teleportation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quantum Teleportation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Quantum mechanics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Quantum mechanics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum_mechanics/introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum_mechanics/schrodinger_equation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schrodinger equation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Real analysis
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Real analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../real_analysis/power_series/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Power series
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Set theory
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Set theory
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../set_theory/results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Results
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Special relativity
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Special relativity
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../special_relativity/galilean_relativity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Special Relativity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../special_relativity/spacetime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Special Relativity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Statistics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            Statistics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../statistics/chi_squared_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chi squared test
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../statistics/continuous_probability_distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Continuous probability distributions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../statistics/discrete_probability_distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Discrete probability distributions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../statistics/hypothesis_testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hypothesis testing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../statistics/introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../statistics/maximum_likelihood_estimation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Maximum likelihood estimation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../statistics/power_transforms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Power transforms
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../statistics/t_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    T test
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../statistics/time_series_forecasting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Time series forecasting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../statistics/z_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Z test
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Topology
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            Topology
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Topology
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Vector spaces
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            Vector spaces
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Dual Spaces
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dual Spaces
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#linear-functionals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linear Functionals
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dual-basis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dual Basis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dual Basis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proof" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proof
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#covectors-as-row-vectors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Covectors as Row Vectors
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visualization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dual-of-the-dual" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dual of the Dual
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dual of the Dual">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proof_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proof
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#natural-isomorphism" class="md-nav__link">
+    <span class="md-ellipsis">
+      Natural Isomorphism:
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hilbert_space/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hilbert space
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#linear-functionals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linear Functionals
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dual-basis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dual Basis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dual Basis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proof" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proof
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#covectors-as-row-vectors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Covectors as Row Vectors
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visualization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dual-of-the-dual" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dual of the Dual
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dual of the Dual">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proof_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proof
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#natural-isomorphism" class="md-nav__link">
+    <span class="md-ellipsis">
+      Natural Isomorphism:
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="dual-spaces">Dual Spaces</h1>
+<p>Every finite-dimensional vector space <span class="arithmatex">\(V\)</span> over a field <span class="arithmatex">\(\mathbb{F}\)</span> has an associated <em>dual space</em> <span class="arithmatex">\(V^\star\)</span>, also denoted <span class="arithmatex">\(L(V, \mathbb{F})\)</span>. Elements of the dual space are sometimes called <em>covectors</em>. In what follows, for clarity, the "arrow" vector notation is used only for elements of the vector space <span class="arithmatex">\(V\)</span> unless where necessary to <em>emphasize</em> the vector nature of elements of the dual space.</p>
+<h2 id="linear-functionals">Linear Functionals</h2>
+<p>We define a <em>linear functional</em> on <span class="arithmatex">\(V\)</span> as a map $\phi: V \to \mathbb{F} $:</p>
+<div class="arithmatex">\[
+    \phi(a \vec u + b \vec v ) = a \phi(\vec u) + b \phi(\vec v) \quad \text{where} \quad \vec u, \vec v \in V \quad a,b \in \mathbb{F}
+\]</div>
+<p>By this definition the linear functionals are also vector space <em>homomorphisms</em>, where the field <span class="arithmatex">\(\mathbb{F}\)</span> is viewed as a one-dimensional vector space; the dual space is also denoted <span class="arithmatex">\(Hom(V, \mathbb{F})\)</span> for this reason. These linear functionals are themselves vectors and form the dual space; they can be added and multiplied by scalars from <span class="arithmatex">\(\mathbb{F}\)</span> to form new linear functionals:</p>
+<div class="arithmatex">\[
+    \phi(\vec u) + \omega(\vec u) = (\phi + \omega)(\vec u)
+\]</div>
+<div class="arithmatex">\[
+    a \phi (\vec u) = (a \phi)(\vec u) 
+\]</div>
+<h2 id="dual-basis">Dual Basis</h2>
+<p>For a finite dimensional vector space <span class="arithmatex">\(V\)</span>, let its basis vectors be <span class="arithmatex">\(\{ e_1, \dots, e_n \}\)</span> and define <span class="arithmatex">\(n\)</span> linear functionals <span class="arithmatex">\(\{ \epsilon_1, \dots, \epsilon_n \}\)</span> using the Kronecker delta by</p>
+<div class="arithmatex">\[
+    \epsilon_i (e_k) = \delta_{ik} 
+\]</div>
+<p>These linear functionals form a basis for <span class="arithmatex">\(V^\star\)</span> known as the <em>dual basis</em>, where <span class="arithmatex">\(dim(V) = dim(V^\star)\)</span>.</p>
+<h3 id="proof">Proof</h3>
+<p>To show that these vectors form a basis it is sufficient to show that they are linearly independent, that is, we must show</p>
+<div class="arithmatex">\[
+    \sum_{i=1}^n a_i \epsilon_i = 0 \quad \implies \quad a_i = 0, \forall a_i \in \mathbb{F}
+\]</div>
+<p>As the basis vectors are linear functionals, we can apply the vector above to any basis vector <span class="arithmatex">\(e_k \in V\)</span>:</p>
+<div class="arithmatex">\[
+    \sum_{i=1}^n a_i \epsilon_i(e_k)  = 0
+\]</div>
+<p>By the definition of the dual basis vectors, all terms are zero except for when <span class="arithmatex">\(i = k\)</span></p>
+<div class="arithmatex">\[
+    \begin{align*}
+        a_k \epsilon_k(e_k) = 0 \\
+        a_k .1  = 0 \\
+        a_k = 0
+    \end{align*}
+\]</div>
+<h2 id="covectors-as-row-vectors">Covectors as Row Vectors</h2>
+<p>In matrix notation, elements of the dual space <span class="arithmatex">\(V^\star\)</span> can be regarded as row vectors, in contrast to the standard representation of finite dimensional vectors as column vectors. For a vector <span class="arithmatex">\(\vec v \in V\)</span> and linear functional (covector) <span class="arithmatex">\(\vec g \in V^\star\)</span>:</p>
+<div class="arithmatex">\[
+    \begin{align*}
+        &amp; \vec w = \sum_{i=1}^n w_i e_i \quad w_i \in \mathbb{F} \\
+        &amp; \vec g = \sum_{i=1}^n g_i \epsilon_i \quad g_i \in \mathbb{F} \\
+        &amp; g(\vec w) = \sum_{i=1}^n w_i g(e_i) = \sum_{i=1}^n w_i g_i \\
+    \end{align*}
+\]</div>
+<p>This can be represented as the product of a row and column matrix:</p>
+<div class="arithmatex">\[
+    \begin{bmatrix} g_1 &amp; \dots &amp; g_n \end{bmatrix}
+    \begin{bmatrix} w_1  \\\ \vdots \\\ w_n \end{bmatrix}
+\]</div>
+<h2 id="visualization">Visualization</h2>
+<p>Linear functionals are vectors in their own right in <span class="arithmatex">\(V^\star\)</span> but we can also visualize them in <span class="arithmatex">\(V\)</span>. Recall the equation for a plane in <span class="arithmatex">\(\mathbb{R}^3\)</span>, where <span class="arithmatex">\((a,b,c)\)</span> are the components in the <span class="arithmatex">\((\hat x, \hat y, \hat z)\)</span> directions of the vector normal to the plane:</p>
+<div class="arithmatex">\[
+    ax + by + cz = d 
+\]</div>
+<p>Now consider all vectors <span class="arithmatex">\(\vec v \in \mathbb{R}^3\)</span> for which the linear functional <span class="arithmatex">\(g\)</span> is equal to some constant <span class="arithmatex">\(\alpha\)</span>. 
+This equation is identical in form to the equation of a plane:</p>
+<div class="arithmatex">\[
+    g(\vec v) = g_1 v_1 + g_2 v_2 + g_3 v_3 = \alpha
+\]</div>
+<p>Therefore, a linear functional can be visualized in <span class="arithmatex">\(V\)</span> as the set of planes perpendicular to the normal vector whose components are given by <span class="arithmatex">\(g_i\)</span>. This can clearly be extended to hyperplanes in higher dimensions.</p>
+<p><img alt="Visualization of Covectors" src="/img/vector_spaces/covectors.png" /></p>
+<h2 id="dual-of-the-dual">Dual of the Dual</h2>
+<p>As <span class="arithmatex">\(V^\star\)</span> is itself a vector space, we can consider the dual <span class="arithmatex">\(V^{**}\)</span> of this dual space. For finite dimensional vector spaces, the dualing process stops at the first dual; the dual of the dual space is the original vector space <span class="arithmatex">\(V\)</span>.</p>
+<p>Similar to how the linear functionals were defined for <span class="arithmatex">\(V\)</span>, consider a map <span class="arithmatex">\(\bar\omega: V^\star \to \mathbb{F}\)</span> that acts on the dual space. This maps takes a linear functional <span class="arithmatex">\(g\)</span> and maps it to an element of the field <span class="arithmatex">\(\mathbb{F}\)</span>, however, there will be some vector <span class="arithmatex">\(\vec v\)</span> that the linear functional <span class="arithmatex">\(g\)</span> also maps to the same value in <span class="arithmatex">\(\mathbb{F}\)</span>:</p>
+<div class="arithmatex">\[
+    \bar\omega(g) = g(\vec v) \quad \forall g \in V^\star
+\]</div>
+<p>The map <span class="arithmatex">\(\bar\omega\)</span> is a linear functional in its own right. For <span class="arithmatex">\(g,h \in V^\star\)</span> and <span class="arithmatex">\(\alpha,\beta \in \mathbb{F}\)</span>:</p>
+<div class="arithmatex">\[  
+    \begin{align*}
+        \bar{\omega}(\alpha g + \beta h) = (\alpha g + \beta h)(\vec v) \\
+        = \alpha g(\vec v) + \beta h(\vec v) \\
+        = \alpha \bar{\omega}(g) + \beta \bar{\omega}(h) \\
+    \end{align*}
+\]</div>
+<p>As there is a way to associate every <span class="arithmatex">\(v \in V\)</span> with an <span class="arithmatex">\(\bar{\omega} \in V^{\star \star}\)</span>, this implies the existence of a map <span class="arithmatex">\(\rho: V \to V^{\star \star}\)</span>:</p>
+<div class="arithmatex">\[
+    \bar{\omega}(g) = g(\vec v) \implies \rho(\vec v) = \bar{\omega}
+\]</div>
+<p>The map <span class="arithmatex">\(\rho\)</span> is linear:</p>
+<div class="arithmatex">\[  
+    \begin{align*}
+        \rho(a \vec{u} + b \vec{v})(g) = \bar{\sigma}(g) \\
+        = g(a \vec{u} + b \vec{v}) \\
+        = a g(\vec{u}) + b g(\vec{v}) \\
+        = a \rho(\vec{u})(g) + b \rho(\vec{v})(g) \\
+    \end{align*}
+\]</div>
+<p>Since this is true for arbitrary <span class="arithmatex">\(g\)</span> we have <span class="arithmatex">\(\rho(a \vec{u} + b \vec{v}) = a \rho(\vec{u}) + b \rho(\vec{v})\)</span>, proving linearity.</p>
+<h3 id="basis">Basis</h3>
+<p>The linear functionals <span class="arithmatex">\(\rho(e_i)\)</span> form a basis for <span class="arithmatex">\(V^{**}\)</span>, where <span class="arithmatex">\(e_i\)</span> are the basis for <span class="arithmatex">\(V\)</span>.</p>
+<h4 id="proof_1">Proof</h4>
+<p>The proof proceeds as above where we must show the following:</p>
+<div class="arithmatex">\[
+    \sum_{i=1}^n \bar{a}_i \rho(e_i) = 0 \quad \implies \quad \bar{a_i} = 0, \forall \bar{a_i} \in \mathbb{F}
+\]</div>
+<p>We can apply the linear functional above above to any basis vector <span class="arithmatex">\(\epsilon_k \in V^{\star}\)</span>:</p>
+<div class="arithmatex">\[
+    \sum_{i=1}^n \bar{a}_i \rho(e_i)(\epsilon_k) = 0
+\]</div>
+<div class="arithmatex">\[
+    \begin{align*}
+        \rho(e_i)(\epsilon_k) = \epsilon_k(e_i) = \delta_{ik} \\
+        \bar{a}_k \rho(e_k)(\epsilon_k) = 0 \\
+        a_k 1 = 0 \\
+        a_k = 0
+    \end{align*}
+\]</div>
+<h2 id="natural-isomorphism">Natural Isomorphism:</h2>
+<p>The map <span class="arithmatex">\(\rho\)</span> is onto as every <span class="arithmatex">\(\bar{\omega} \in V^{\star \star}\)</span> is mapped to by some vector in <span class="arithmatex">\(V\)</span>, as we can see by the linearity of <span class="arithmatex">\(\rho\)</span>:</p>
+<div class="arithmatex">\[
+    \bar{\omega} = \sum_{i=1}^n \bar{a}_i \rho(e_i) = \sum_{i=1}^n \rho(\bar{a}_i e_i) = \rho(\sum_{i=1}^n \bar{a}_i e_i) \quad \bar{a}_i \in \mathbb{F}
+\]</div>
+<p>The map <span class="arithmatex">\(\rho\)</span> is also one-to-one because by the definition of a basis each vector <span class="arithmatex">\(\sum_{i=1}^n \bar{a}_i e_i\)</span> is unique. Therefore, the map <span class="arithmatex">\(\rho\)</span> is an isomorphism between <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(V^{\star \star}\)</span>. Note that the relation <span class="arithmatex">\(\bar{\omega}(g) = g(\vec{v})\)</span> makes no reference to a basis so we call <span class="arithmatex">\(V \cong V^{\star \star}\)</span> a <em>natural isomorphism</em>; there is no ambiguity in writing <span class="arithmatex">\(\vec{v}(g) = g(\vec{v})\)</span>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

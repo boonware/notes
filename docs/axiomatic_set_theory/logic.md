@@ -13,7 +13,6 @@ We use logical operators to create new propositions from existing ones. In the s
 | $t$ | $t$ | $f$ | $t$ | $f$ |
 | $f$ | $f$ | $t$ | $t$ | $f$ |
 
-
 ### Binary Operators
 
 In total there are $2^4$ binary logical operators, the most important of which are shown below. The predicate $p$ is known as the "antecendent" and $q$ as the "consequent".
@@ -72,12 +71,18 @@ New predicates can also be constructed using what are called quantifiers.
 
 "For all $x$, $P(x)$" is written as:
 
-$ \forall x : P(x)$
+$$
+\forall x : P(x)
+$$
 
 "There exists an $x$ such that $P(x)$" is defined as:
 
-$ \exists x : P(x) \iff \neg (\forall x : \neg P(x))$
+$$
+\exists x : P(x) \iff \neg (\forall x : \neg P(x))
+$$
 
 "There exists a unique $x$ such that $P(x)$" is defined as:
 
-$ \exists! x : P(x) \iff (\exists x : P(x)) \land (\neg \exists y : P(y) \land y \neq x)$ 
+$$
+\exists! x : P(x) \iff (\exists x : P(x)) \land (\neg \exists y : P(y) \land y \neq x)
+$$ 
