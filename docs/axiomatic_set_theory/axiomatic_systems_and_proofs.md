@@ -17,8 +17,20 @@ $$
     a_1, \dots, a_n \vdash p
 $$
 
-### Modus Ponens
-TODO
+In general, it is difficult to find a proof but easy to check if a given proof is valid. 
+
+### Modus Ponens & Modus Tollens
+Modus ponens and modus tollens are fundamental rules of inference or forms of deductive reasoning in propositional logic. Modus ponens goes as follows:
+
+1. If $P$ then $Q$
+2. $P$
+3. Therefore, $Q$
+
+Modus tollens goes as follows:
+
+1. If $P$ then $Q$
+2. Not $Q$
+3. Therefore, not $P$
 
 ## Consistency
 An axiomatic system is consistent if there exists a proposition $q$ that cannot be proven from the axioms:
@@ -35,4 +47,15 @@ $$
 
 The left side is a contradiction, i.e. always false, and by the definition of implication this always evaluates to true. We can arrive at the truth of _any proposition_ $q$ ("ex falso quodlibet"). Therefore, it is a sign of consistency of an axiomatic system if there exists a proposition that cannot be proven from the axioms.
 
+In general, it may be difficult to show that a list of axioms is consistent.
+
 ### Theorem: Consistency of Propositional Logic
+
+Propositional logic is consistent.
+
+#### Proof
+
+Propositional logic has no axioms so from the definition of a proof given above points (2) and (3) must carry the proof, i.e. either we have a tautology or we combine tautologies to form another, meaning that we can only prove tautologies. Now consider the following proposition $q \land \neg q$ which is not a tautology, it is a contradiction. This proposition is not provable within propositional logic, Q.E.D.
+
+### Axioms & Tautologies
+A tautology can always be removed from a list of axioms without effect. An example of this is propositional logic which has no axioms. As shown above, all that can be proven are tautologies. A proposition such as $p \land q$ cannot be proven as it depends on the values of $p$ and $q$, but $p \lor \neg p$ can be proven as it is always true, it is a tautology; because it is always true, it is proven. Therefore, according to the definition of a proof we do not need axioms as a tautology can always be pulled into the proof.
