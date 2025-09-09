@@ -20,8 +20,8 @@ extra_javascript:
 
 nav:
   - Mathematics:
-    - Logic:
-      - Axiomatic Set Theory: axiomatic_set_theory/logic.md
+    - Axiomatic Set Theory:
+      - Logic: axiomatic_set_theory/logic.md
       - Axiomatic Systems & Proofs: axiomatic_set_theory/axiomatic_systems_and_proofs.md
       - Zermelo-Fraenkel Axioms: axiomatic_set_theory/zermelo_fraenkel_axioms.md
 
