@@ -58,16 +58,16 @@ The columns for $(p \implies q)$ and $(\neg q \implies \neg p)$  are identical.
 
 ## Predicate Logic
 
-A predicate is a proposition-valued function of some variable(s).
-
-New predicates can be constructed from others, for example:
+A predicate is a proposition-valued function of some variable(s). The nature of these variables is left undefined. New predicates can be constructed from others, for example, for predicates $P(x)$ and $R(y,z)$:
 
 $$
     Q(x, y, z): \iff P(x) \land R(y, z)
 $$
 
+Here we use "$: \iff$" to mean that the left side is _defined_ to be equivalent to the right side.
+
 ### Quantifiers
-New predicates can also be constructed using what are called quantifiers.
+New predicates can also be constructed using what are called quantifiers. Here the colon should be read as "such that" and separates the quantifier from the proposition. Parentheses may be used to clarify to which propositions an operator applies.
 
 "For all $x$, $P(x)$" is written as:
 
@@ -85,4 +85,43 @@ $$
 
 $$
 \exists! x : P(x) \iff (\exists x : P(x)) \land (\neg \exists y : P(y) \land y \neq x)
-$$ 
+$$
+
+#### Corollary
+
+$$
+    \forall x : \neg P(x) \iff \neg (\exists x : P(x))
+$$
+
+### Bound vs. Free Variables
+Quantifiers can be used on multi-variable predicates. Consider the following proposition:
+
+$$
+    \forall x : P(x, y) \iff Q(y)
+$$
+
+The predicate $Q(y)$ only depends on a single variable $y$ as it is known that the predicate is true for every possible $x$. The variable $x$ is called the "bound" variable and $y$ is called the "free" variable.
+
+### Order of Quantifiers
+The order of quantifiers matters in a logical proposition. The following two propositions are not equivalent:
+
+$$
+    \begin{align*}
+        \forall x : \exists y : P(x,y) \\
+        \exists y : \forall x : P(x,y) \\
+    \end{align*}
+$$
+
+As a concrete example, consider a proposition about the existence of an inverse $a^{-1}$ for all real numbers $a$ and let us write this correctly as:
+
+$$
+    \forall a : \exists a^{-1} : a + a^{-1} = 0
+$$
+
+This reads as "For all $a$, there exists an inverse ...". Now, let use reverse the position of the quantifiers:
+
+$$
+    \exists a^{-1} : \forall a : a + a^{-1} = 0
+$$
+
+This reads as "There exists an inverse such that for all $a$ ...". This is clearly wrong as there is not _one_ number that is the same inverse for all real numbers!
