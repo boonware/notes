@@ -39,9 +39,6 @@ $$
 
 There exists only one empty set, $\emptyset$.
 
-#### Proof
-
-
 #### Proof: Formal
 
 $$
@@ -51,11 +48,12 @@ $$
         \forall y : y \notin x \implies (\forall y : y \in x \implies y \in x^{\prime}) \tag{q1} \\
         (\forall y : y \notin x) \land (\forall y : y \notin x \implies (\forall y: y \in x \implies y \in x^{\prime})) \quad (a1 \land q1) \tag{q2} \\
         \text{Therefore} \quad \forall y: y \in x \implies y \in x^{\prime} \\
-
+        \\
         \forall y : y \notin x^{\prime} \implies (\forall y : y \in x^{\prime} \implies y \in x) \tag{q3} \\
         (\forall y : y \notin x^{\prime}) \land (\forall y : y \notin x^{\prime} \implies (\forall y: y \in x^{\prime} \implies y \in x)) \quad (a2 \land q3) \tag{q4} \\
         \text{Therefore} \quad \forall y: y \in x^{\prime} \implies y \in x \\
-        x = x^{\prime} \tag{q5} \\
+        \\
+        \text{Therefore} \quad x = x^{\prime} \tag{q5} \\
     \end{align*}
 $$
 
@@ -80,7 +78,8 @@ $$
 $$
 
 #### Example
-$x = \{ \{u\}, \{v\} \} \quad \bigcup x = \{ u, v \} $
+
+$x = \{ \{u\}, \{v\} \} \quad \bigcup x = \{ u, v \}$
 
 ### Recursive Unions
 
