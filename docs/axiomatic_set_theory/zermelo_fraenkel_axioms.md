@@ -40,6 +40,7 @@ $$
 There exists only one empty set, $\emptyset$.
 
 #### Proof: Formal
+The following formal proof is given to demonstrate how proofs are constructed using statements in logic.
 
 $$
     \begin{align*}
@@ -53,7 +54,8 @@ $$
         (\forall y : y \notin x^{\prime}) \land (\forall y : y \notin x^{\prime} \implies (\forall y: y \in x^{\prime} \implies y \in x)) \quad (a2 \land q3) \tag{q4} \\
         \text{Therefore} \quad \forall y: y \in x^{\prime} \implies y \in x \\
         \\
-        \text{Therefore} \quad x = x^{\prime} \tag{q5} \\
+        \text{Therefore} \quad (\forall y: y \in x \implies y \in x^{\prime}) \iff (\forall y: y \in x^{\prime} \implies y \in x) \tag{q5} \\
+        \text{Therefore} \quad x = x^{\prime} \tag{q6} \\
     \end{align*}
 $$
 
