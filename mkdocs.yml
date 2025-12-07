@@ -35,6 +35,7 @@ nav:
 
     - Complex Analysis:
       - Complex Numbers: complex_analysis/complex_numbers.md
+      - Contour Integration: complex_analysis/contour_integration.md
 
     - Group Theory:
       - Group Actions: group_theory/group_actions.md
