@@ -59,16 +59,3 @@ $$
 $$
     e^{i\theta} = cos{\theta} + i\sin{\theta}
 $$
-
-### Cauchy-Riemann Equations
-For a function of a complex variable, the Cauchy-Riemann equations establish a necessary and sufficient condition for the function to be differentiable. The function $f(z)$ can be split into two components, each acting on the real and imaginary parts:
-
-$$
-    f(z) = u(a, b) + v(a, b)
-$$
-
-Then the condition for differentiability is:
-
-$$
-    \frac{\partial{u}}{\partial{a}} = \frac{\partial{v}}{\partial{b}} \quad \quad \frac{\partial{u}}{\partial{b}} = - \frac{\partial{v}}{\partial{a}}
-$$

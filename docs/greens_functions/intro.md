@@ -63,6 +63,8 @@ $$
     \end{align*}
 $$
 
+#### Fourier Integrals
+
 Let us use the Fourier integral representation of the Dirac delta function:
 
 $$
@@ -87,7 +89,7 @@ Our equation finally reduces to the following when the integrals are cancelled o
 
 $$
     \begin{align*}
-        -k^2\hat{G}(k) + \hat{G}(k) - 1 = 0 \\
+        -k^2\hat{G}(k) + \hat{G}(k) = 1 \\
         \hat{G}(k) = \frac{1}{1 - k^2}
     \end{align*}
 $$
@@ -96,12 +98,17 @@ $$
      G(x, s) = \frac{1}{2 \pi} \int_{-\infty}^{\infty} \frac{e^{-ik(x - s)}}{1 - k^2} dk
 $$
 
-This integral poses a problem: there are two poles at $k = \pm1$ where the denominator becomes zero. Contour integrals on the complex plan are ideal to treat these kinds of problems. We perform an analytic continuation of $G(x,s)$ into the complex numbers:
+This integral poses a problem: there are two poles at $k = \pm1$ where the denominator becomes zero.
+
+#### Contour Integration
+
+Contour integrals on the complex plain are ideal to treat these kinds of problems. We perform an analytic continuation of $G(x,s)$ into the complex numbers:
 
 $$  
     \begin{align*}
-        x \to z = x + i \eta \quad G(x,s) \to G(z) \\
-         \lim_{\eta \to 0} G(z) = G(x) \\
+        x \to z = x + i \eta \\
+        G(x,s) \to G(z) \\
+        \lim_{\eta \to 0} G(z) = G(x) \\
     \end{align*}
 $$
 
