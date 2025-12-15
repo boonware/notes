@@ -47,5 +47,9 @@ $$
 $$
 
 $$
-    \oint_C \frac{dz}{(z-z_0)^n} =  \oint_0^{2\pi} \frac{ire^{i\theta} d\theta}{(re^{i\theta})^n} = i r^{1-n} \oint_0^{2\pi} e^{i(1-n)\theta} d\theta}
+    \oint_C \frac{dz}{(z-z_0)^n} =  \oint_0^{2\pi} \frac{ire^{i\theta} d\theta}{(re^{i\theta})^n} = i r^{1-n} \oint_0^{2\pi} e^{i(1-n)\theta} d\theta
+$$
+
+$$
+    i r^{1-n} \oint_0^{2\pi} e^{i(1-n)\theta} d\theta = \frac{r^{1-n}}{1-n} e^{i(1-n)\theta} \big|_0^{2\pi} = \frac{r^{1-n}}{1-n} e^{i(1-n)\theta} \big|_0^{2\pi}
 $$
