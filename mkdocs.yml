@@ -36,12 +36,12 @@ nav:
     - Real Analysis:
       - Fundamentals of Calculus: real_analysis/fundamentals_of_calculus.md
       - Taylor Series: real_analysis/taylor_series.md
-      - Power Series: real_analysis/power_series.md
 
     - Complex Analysis:
       - Complex Numbers: complex_analysis/complex_numbers.md
       - Complex Derivative: complex_analysis/complex_derivative.md
       - Contour Integration: complex_analysis/contour_integration.md
+      - Laurent Series: complex_analysis/laurent_series.md
 
     - Group Theory:
       - Group Actions: group_theory/group_actions.md
