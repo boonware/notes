@@ -13,6 +13,7 @@ markdown_extensions:
   - toc:
       permalink: "#"
       toc_depth: 3
+  - attr_list: {}
 
 extra_javascript:
   - javascripts/mathjax.js
@@ -39,9 +40,10 @@ nav:
 
     - Complex Analysis:
       - Complex Numbers: complex_analysis/complex_numbers.md
-      - Complex Derivative: complex_analysis/complex_derivative.md
+      - Differentiation: complex_analysis/complex_derivative.md
       - Contour Integration: complex_analysis/contour_integration.md
       - Laurent Series: complex_analysis/laurent_series.md
+      - Residue Theorem: complex_analysis/residue_theorem.md
 
     - Group Theory:
       - Group Actions: group_theory/group_actions.md

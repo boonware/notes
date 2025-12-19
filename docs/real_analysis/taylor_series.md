@@ -9,6 +9,10 @@ $$
     f(x) = \sum^\infty_{n=0} \frac{f^{(n)}(a)(x-a)^n}{n!}
 $$
 
+
+### Analytic Functions
+The function $f(x)$ is said to be **analytic** if it can be represented by a Taylor series at all points in its domain. This is a stronger requirement that being infinitely differentiable as there exist functions that meet this requirement but that are not analytic.
+
 ### Proof
 Applying the Fundamental Theorem of Calculus, we can express a function $f(x)$ as, loosely, the value of the function at point $a$ _plus_ all of the changes in the function from $a$ to $x$. Concretely:
 
