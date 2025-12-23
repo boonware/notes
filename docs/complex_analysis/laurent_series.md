@@ -26,14 +26,3 @@ $$
 $$
 
 We see that a Taylor series is a special case where all negative-power terms are zero. The part with postive-power terms is called the **analytic** part and the part with negative-power terms the **principle** part.
-
-### Residues
-The coefficient $b_1$ in the Laurent series of $f(z)$ is known as the residue of $f(z)$ at $z_0$:
-
-$$
-    Res(f, z_0) = b_1
-$$
-
-### Example
-
-TODO
