@@ -22,58 +22,60 @@ extra_javascript:
 nav:
   - Mathematics:
     - Axiomatic Set Theory:
-      - Logic: axiomatic_set_theory/logic.md
-      - Axiomatic Systems & Proofs: axiomatic_set_theory/axiomatic_systems_and_proofs.md
-      - Zermelo-Fraenkel Axioms: axiomatic_set_theory/zermelo_fraenkel_axioms.md
+      - Logic: math/axiomatic_set_theory/logic.md
+      - Axiomatic Systems & Proofs: math/axiomatic_set_theory/axiomatic_systems_and_proofs.md
+      - Zermelo-Fraenkel Axioms: math/axiomatic_set_theory/zermelo_fraenkel_axioms.md
 
     - Vector Spaces:
-      - Dual Space: vector_spaces/dual_space.md
-      - Hilbert Space: vector_spaces/hilbert_space.md
+      - Dual Space: math/vector_spaces/dual_space.md
+      - Hilbert Space: math/vector_spaces/hilbert_space.md
 
     - Linear Operators:
-      - Representation: linear_operators/representation.md
-      - Basis Dependence: linear_operators/basis_dependence.md
+      - Representation: math/linear_operators/representation.md
+      - Basis Dependence: math/linear_operators/basis_dependence.md
     
     - Real Analysis:
-      - Fundamentals of Calculus: real_analysis/fundamentals_of_calculus.md
-      - Taylor Series: real_analysis/taylor_series.md
+      - Fundamentals of Calculus: math/real_analysis/fundamentals_of_calculus.md
+      - Taylor Series: math/real_analysis/taylor_series.md
 
     - Complex Analysis:
-      - Complex Numbers: complex_analysis/complex_numbers.md
-      - Differentiation: complex_analysis/complex_derivative.md
-      - Contour Integration: complex_analysis/contour_integration.md
-      - Laurent Series: complex_analysis/laurent_series.md
-      - Residue Theorem: complex_analysis/residue_theorem.md
-
+      - Complex Numbers: math/complex_analysis/complex_numbers.md
+      - Differentiation: math/complex_analysis/complex_derivative.md
+      - Contour Integration: math/complex_analysis/contour_integration.md
+      - Laurent Series: math/complex_analysis/laurent_series.md
+      - Residue Theorem: math/complex_analysis/residue_theorem.md
+    - Calculus of Variations:
+      - Euler-Lagrange Equations: math/calculus_of_variations/euler_lagrange_equations.md
     - Group Theory:
-      - Group Actions: group_theory/group_actions.md
-      - Exercise Solutions (Stone & Goldbart): group_theory/stone_goldbart_solutions.md
+      - Group Actions: math/group_theory/group_actions.md
+      - Exercise Solutions (Stone & Goldbart): math/group_theory/stone_goldbart_solutions.md
 
     - Statistics:
-      - Introduction: statistics/introduction.md
-      - Discrete Probability Distributions: statistics/discrete_probability_distributions.md
-      - Continuous Probability Distributions: statistics/continuous_probability_distributions.md
-      - Hypothesis Testing: statistics/hypothesis_testing.md
-      - Z-Score & Z-Test: statistics/z_test.md
-      - Student's T-Test: statistics/t_test.md
-      - Pearson's Chi-Squared Test: statistics/chi_squared_test.md
-      - Maximum Likelihood Estimation: statistics/maximum_likelihood_estimation.md
-      - Power Transforms: statistics/power_transforms.md
-      - Correlation: statistics/correlation.md
+      - Introduction: math/statistics/introduction.md
+      - Discrete Probability Distributions: math/statistics/discrete_probability_distributions.md
+      - Continuous Probability Distributions: math/statistics/continuous_probability_distributions.md
+      - Hypothesis Testing: math/statistics/hypothesis_testing.md
+      - Z-Score & Z-Test: math/statistics/z_test.md
+      - Student's T-Test: math/statistics/t_test.md
+      - Pearson's Chi-Squared Test: math/statistics/chi_squared_test.md
+      - Maximum Likelihood Estimation: math/statistics/maximum_likelihood_estimation.md
+      - Power Transforms: math/statistics/power_transforms.md
+      - Correlation: math/statistics/correlation.md
+      - Monte Carlo Method: math/statistics/monte_carlo_method.md
     
     - Numerical Analysis:
-      - Floating-Point: numerical_analysis/floating_point.md
+      - Floating-Point: math/numerical_analysis/floating_point.md
 
-    - "Green's Functions":
-      - Introduction: greens_functions/intro.md
+    - Green Functions:
+      - Introduction: math/greens_functions/intro.md
       
   - Physics:
     - Special Relativity:
-      - Galilean Relativity: special_relativity/galilean_relativity.md
-      - Spacetime: special_relativity/spacetime.md
+      - Galilean Relativity: physics/special_relativity/galilean_relativity.md
+      - Spacetime: physics/special_relativity/spacetime.md
     - Quantum Mechanics:
-      - Introduction: quantum_mechanics/introduction.md
-      - Schrodinger Equation: quantum_mechanics/schrodinger_equation.md
+      - Introduction: physics/quantum_mechanics/introduction.md
+      - Schrodinger Equation: physics/quantum_mechanics/schrodinger_equation.md
   - Quantum Computing:
     - Teleportation: quantum_computation/teleportation.md
     - Quantum Parallelism & Deutsch's Algorithm: quantum_computation/deutschs_algorithm.md
