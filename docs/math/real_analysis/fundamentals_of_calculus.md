@@ -35,3 +35,21 @@ $$
 $$
     f'(c) = \frac{f(b) - f(a)}{b - a}
 $$
+
+### Integration by Parts
+
+$$
+    \int_a^b u(x)v^{\prime}(x)dx = \bigg[ u(x)v(x) \bigg]_a^b - \int_a^b v(x) u^{\prime}(x)dx
+$$
+
+#### Proof
+
+Using the chain rule:
+$$
+    \begin{align*}
+        & \frac{d}{dt} \bigg( u(x) v(x) \bigg) = \frac{d(u(x))}{dx}v(x) + \frac{d(v(x))}{dx}u(x) \\
+       & \frac{d(v(x))}{dx}u(x) = \frac{d}{dx} \bigg( u(x) v(x) \bigg) - \frac{d(u(x))}{dx}v(x) \\
+       & \int_a^b \frac{d(v(x))}{dx}u(x) dx = \int_a^b \frac{d}{dt} \bigg( u(x) v(x) \bigg) dx - \int_a^b \frac{d(u(x))}{dx}v(x) dx \\
+        & \int_a^b d(v(x))u(x) = \int_a^b d\bigg( u(x) v(x) \bigg) - \int_a^b d(u(x))v(x) \\
+    \end{align*}
+$$
