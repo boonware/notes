@@ -6,6 +6,8 @@ theme:
   color_mode: auto
   user_color_mode_toggle: true
   navigation_depth: 3
+  font:
+    text: Consolas
 
 markdown_extensions:
   - pymdownx.arithmatex:
@@ -33,7 +35,7 @@ nav:
     - Linear Operators:
       - Representation: math/linear_operators/representation.md
       - Basis Dependence: math/linear_operators/basis_dependence.md
-    
+
     - Real Analysis:
       - Fundamentals of Calculus: math/real_analysis/fundamentals_of_calculus.md
       - Taylor Series: math/real_analysis/taylor_series.md
@@ -62,26 +64,27 @@ nav:
       - Power Transforms: math/statistics/power_transforms.md
       - Correlation: math/statistics/correlation.md
       - Monte Carlo Method: math/statistics/monte_carlo_method.md
-    
+
     - Numerical Analysis:
       - Floating-Point: math/numerical_analysis/floating_point.md
 
     - Green Functions:
       - Introduction: math/greens_functions/intro.md
-      
+
   - Physics:
     - Special Relativity:
       - Galilean Relativity: physics/special_relativity/galilean_relativity.md
       - Spacetime: physics/special_relativity/spacetime.md
     - Quantum Mechanics:
       - Introduction: physics/quantum_mechanics/introduction.md
+      - Postulates of Quantum Mechanics: physics/quantum_mechanics/postulates_of_quantum_mechanics.md
       - Schrodinger Equation: physics/quantum_mechanics/schrodinger_equation.md
   - Quantum Computing:
     - Teleportation: quantum_computation/teleportation.md
     - Quantum Parallelism & Deutsch's Algorithm: quantum_computation/deutschs_algorithm.md
     - Deutsch's Algorithm: quantum_computation/deutschs_algorithm.md
     - Deutsch-Josza Algorithm: quantum_computation/deutsch_josza_algorithm.md
-  
+
   - Machine Learning:
     - Introduction: machine_learning/introduction.md
     - Linear Regression: machine_learning/linear_regression.md
@@ -89,4 +92,3 @@ nav:
     - Logistic Regression: machine_learning/logistic_regression.md
     - Natural Language Processing:
         - TF-IDF: nlp/intro.md
-  
