@@ -11,7 +11,7 @@ The map $\phi: A \to B$ may also be written $A \xrightarrow{\phi} B$.
 ### Terminology
 * $A$ is the _domain_
 * $B$ is the _codomain_ or _target_.
-* Image of $A$: $\ \phi(A) \equiv Im_\phi(A) := \{ \phi(a)\ | \ a \in A \} $
+* Image of $A$: $ \ \phi(A) \equiv Im_\phi(A) := \{ \phi(a)\ | \ a \in A \} $
 
 
 ### Surjective, Bijective, Injective
@@ -37,15 +37,19 @@ $$
 Let $\phi: A \to B$ be a bijection. The inverse map $\phi^{-1}: B \to A$ is uniquely given by
 
 $$
-    \phi^{-1} \circ \phi = id_A \\\\
+\begin{aligned}
+    \phi^{-1} \circ \phi = id_A \\
     \phi \circ \phi^{-1} = id_B
+\end{aligned}
 $$
 
 The indentity map $id$ is defined as follows:
 
 $$
-    id_M: M \to M \\\\
+\begin{aligned}
+    id_M: M \to M \\
     \forall m \in M: m \mapsto m
+\end{aligned}
 $$
 
 ### Pre-Image
