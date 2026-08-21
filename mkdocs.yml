@@ -27,6 +27,8 @@ nav:
       - Logic: math/axiomatic_set_theory/logic.md
       - Axiomatic Systems & Proofs: math/axiomatic_set_theory/axiomatic_systems_and_proofs.md
       - Zermelo-Fraenkel Axioms: math/axiomatic_set_theory/zermelo_fraenkel_axioms.md
+      - Classification of Sets: math/axiomatic_set_theory/classification_of_sets.md
+      - Equivalence Classes: math/axiomatic_set_theory/equivalence_classes.md
 
     - Vector Spaces:
       - Dual Space: math/vector_spaces/dual_space.md
