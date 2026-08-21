@@ -33,7 +33,7 @@ called the _equivalence class of_ $m$. There are two key properties of equivalen
 #### Proof
 
 $$
-(a \in [m] \implies [a] = [m]) \implies (a \notin [m] \implies [a] \neq [m]) \\
+(a \in [m] \implies [a] = [m]) \implies (a \notin [m] \implies [a] \neq [m]) \\\\
 (\forall n \in [m]: [n] = [m]) \land (a \notin [m] \implies [a] \neq [m]) \implies \forall n \in [m]: n \notin [a]
 $$
 
@@ -66,7 +66,7 @@ Each member of the quotient set can be represented by exactly one of its element
 Care must taken when defining maps whose domain is a quotient set when representatives of the equivalence classes are used to define the map. It must be proven that the map is well-defined. For example, consider the integers $\mathbb{Z}$ and the equivalence relation $m \sim n :\iff m - n \in 2\mathbb{Z}$, that is, the difference must be an even integer. The equivalence classes can be written as follows:
 
 $$
-    [0] = [2] = [4] = \ldots = [-2] = [-4] \ldots \\
+    [0] = [2] = [4] = \ldots = [-2] = [-4] \ldots \\\\
     [1] = [3] = [5] = \ldots = [-1] = [-3] \ldots
 $$
 
@@ -91,9 +91,9 @@ $$
 Is this true?
 
 $$
-    [a^\prime] = [a] = a^\prime - a = 2n \quad \text{where} \quad n \in \mathbb{Z} \\
-    [b^\prime] = [b] = b^\prime - b = 2m \quad \text{where} \quad m \in \mathbb{Z} \\
-    [a^\prime + b^\prime] = [2n - a + 2m - b] = [2(m+n) - (a+b)] \\
+    [a^\prime] = [a] = a^\prime - a = 2n \quad \text{where} \quad n \in \mathbb{Z} \\\\
+    [b^\prime] = [b] = b^\prime - b = 2m \quad \text{where} \quad m \in \mathbb{Z} \\\\
+    [a^\prime + b^\prime] = [2n - a + 2m - b] = [2(m+n) - (a+b)] \\\\
     [2(m+n) - (a+b)] \sim [a+b]
 $$
 

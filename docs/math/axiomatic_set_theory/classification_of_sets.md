@@ -37,14 +37,14 @@ $$
 Let $\phi: A \to B$ be a bijection. The inverse map $\phi^{-1}: B \to A$ is uniquely given by
 
 $$
-    \phi^{-1} \circ \phi = id_A \\
+    \phi^{-1} \circ \phi = id_A \\\\
     \phi \circ \phi^{-1} = id_B
 $$
 
 The indentity map $id$ is defined as follows:
 
 $$
-    id_M: M \to M \\
+    id_M: M \to M \\\\
     \forall m \in M: m \mapsto m
 $$
 
